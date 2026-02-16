@@ -19,21 +19,21 @@ from datetime import datetime, timedelta
 # ============================================================
 
 ASSET_META = {
-    "SPY":     {"name": "S&P 500 ETF",        "category": "us_equity", "color": "#4fc3f7"},
-    "QQQ":     {"name": "Nasdaq 100 ETF",      "category": "us_equity", "color": "#ab47bc"},
-    "DIA":     {"name": "Dow Jones ETF",        "category": "us_equity", "color": "#42a5f5"},
-    "IWM":     {"name": "Russell 2000 ETF",     "category": "us_equity", "color": "#66bb6a"},
-    "ARKK":    {"name": "ARK Innovation ETF",   "category": "us_equity", "color": "#ff7043"},
-    "EWY":     {"name": "South Korea ETF",      "category": "global",    "color": "#26c6da"},
-    "EEM":     {"name": "Emerging Markets ETF",  "category": "global",    "color": "#8d6e63"},
-    "SCHD":    {"name": "Dividend ETF",         "category": "dividend",  "color": "#5c6bc0"},
-    "GLD":     {"name": "Gold ETF",             "category": "commodity", "color": "#ffd700"},
-    "SLV":     {"name": "Silver ETF",           "category": "commodity", "color": "#b0bec5"},
-    "USO":     {"name": "Oil ETF",              "category": "commodity", "color": "#a1887f"},
-    "XLE":     {"name": "Energy Sector ETF",    "category": "commodity", "color": "#ef5350"},
-    "TLT":     {"name": "20+ Year Treasury ETF","category": "bond",      "color": "#78909c"},
-    "BTC_USD": {"name": "Bitcoin",              "category": "crypto",    "color": "#f7931a"},
-    "ETH_USD": {"name": "Ethereum",             "category": "crypto",    "color": "#627eea"},
+    "SPY":     {"name": "S&P 500",        "category": "us_equity", "color": "#4fc3f7"},
+    "QQQ":     {"name": "나스닥 100",      "category": "us_equity", "color": "#ab47bc"},
+    "DIA":     {"name": "다우존스",         "category": "us_equity", "color": "#42a5f5"},
+    "IWM":     {"name": "러셀 2000",       "category": "us_equity", "color": "#66bb6a"},
+    "ARKK":    {"name": "ARK 이노베이션",   "category": "us_equity", "color": "#ff7043"},
+    "EWY":     {"name": "한국(코스피)",     "category": "global",    "color": "#26c6da"},
+    "EEM":     {"name": "이머징마켓",       "category": "global",    "color": "#8d6e63"},
+    "SCHD":    {"name": "미국 배당",        "category": "dividend",  "color": "#5c6bc0"},
+    "GLD":     {"name": "금",              "category": "commodity", "color": "#ffd700"},
+    "SLV":     {"name": "은",              "category": "commodity", "color": "#b0bec5"},
+    "USO":     {"name": "원유",            "category": "commodity", "color": "#a1887f"},
+    "XLE":     {"name": "에너지 섹터",      "category": "commodity", "color": "#ef5350"},
+    "TLT":     {"name": "미국 장기채",      "category": "bond",      "color": "#78909c"},
+    "BTC_USD": {"name": "비트코인",         "category": "crypto",    "color": "#f7931a"},
+    "ETH_USD": {"name": "이더리움",         "category": "crypto",    "color": "#627eea"},
 }
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
