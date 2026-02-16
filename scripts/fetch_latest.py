@@ -75,7 +75,8 @@ def fetch_coingecko(coingecko_id, start_date):
         print(f"  No new data for {coingecko_id}")
         return None
 
-    url = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/ohlc"
+    # market_chart API 사용 (OHLC보다 유연한 days 값 허용)
+    url = f"https://api.coingecko.com/api/v3/coins/{coingecko_id}/market_chart"
     params = {"vs_currency": "usd", "days": min(days_diff + 1, 90)}
 
     print(f"  Fetching {coingecko_id} last {params['days']} days...")
@@ -83,18 +84,19 @@ def fetch_coingecko(coingecko_id, start_date):
     resp.raise_for_status()
     data = resp.json()
 
-    if not data:
+    if not data or "prices" not in data:
         return None
 
     rows = []
-    for entry in data:
-        ts, o, h, l, c = entry
+    seen_dates = set()
+    for entry in data["prices"]:
+        ts, price = entry
         dt = datetime.fromtimestamp(ts / 1000).strftime("%Y-%m-%d")
-        rows.append({"Date": dt, "Close": c, "High": h, "Low": l, "Open": o, "Volume": 0})
+        if dt not in seen_dates:
+            seen_dates.add(dt)
+            rows.append({"Date": dt, "Close": price, "High": price, "Low": price, "Open": price, "Volume": 0})
 
     df = pd.DataFrame(rows)
-    # Deduplicate by date (keep last)
-    df = df.drop_duplicates(subset="Date", keep="last")
     # Filter only after start_date
     df = df[df["Date"] > start_date.strftime("%Y-%m-%d")]
 
