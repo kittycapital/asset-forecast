@@ -123,12 +123,17 @@ def forecast_monte_carlo(prices, n_days, n_simulations=5000):
     lower_70 = np.percentile(simulations, 15, axis=0)
     upper_70 = np.percentile(simulations, 85, axis=0)
 
+    # 대표 시뮬레이션 경로 20개 샘플링 (7일 시뮬레이션 뷰용)
+    sample_indices = np.random.choice(n_simulations, size=min(20, n_simulations), replace=False)
+    sample_paths = simulations[sample_indices]
+
     return {
         "predicted": predicted,
         "lower_70": lower_70,
         "upper_70": upper_70,
         "lower_90": lower_90,
         "upper_90": upper_90,
+        "sample_paths": sample_paths,
     }
 
 
@@ -167,6 +172,36 @@ def generate_forecast(df, period="daily"):
         forecast_data.append(entry)
 
     return forecast_data
+
+
+def generate_simulation_7d(df):
+    """7일 시뮬레이션 생성: 경로 20개 + 밴드 + 중앙 예측"""
+    prices = df["Close"].values
+    last_date = df["Date"].iloc[-1]
+    last_price = float(prices[-1])
+    n_days = 7
+    dates = [(last_date + timedelta(days=i)).strftime("%Y-%m-%d") for i in range(n_days + 1)]
+
+    result = forecast_monte_carlo(prices, n_days)
+
+    # 시작점 (현재가) 포함한 경로 데이터
+    paths = []
+    for path in result["sample_paths"]:
+        p = [round(last_price, 2)] + [round(float(v), 2) for v in path]
+        paths.append(p)
+
+    sim_data = {
+        "dates": dates,
+        "start_price": round(last_price, 2),
+        "predicted": [round(last_price, 2)] + [round(float(v), 2) for v in result["predicted"]],
+        "lower_70": [round(last_price, 2)] + [round(float(v), 2) for v in result["lower_70"]],
+        "upper_70": [round(last_price, 2)] + [round(float(v), 2) for v in result["upper_70"]],
+        "lower_90": [round(last_price, 2)] + [round(float(v), 2) for v in result["lower_90"]],
+        "upper_90": [round(last_price, 2)] + [round(float(v), 2) for v in result["upper_90"]],
+        "paths": paths,
+    }
+
+    return sim_data
 
 
 # ============================================================
@@ -247,6 +282,8 @@ def process_asset(asset_key, filepath):
     weekly_forecast = generate_forecast(df, "weekly")
     print(f"    → Monthly forecast...")
     monthly_forecast = generate_forecast(df, "monthly")
+    print(f"    → 7-day simulation...")
+    sim_7d = generate_simulation_7d(df)
 
     # 백테스트
     print(f"    → Backtesting...")
@@ -269,6 +306,7 @@ def process_asset(asset_key, filepath):
             "weekly": weekly_forecast,
             "monthly": monthly_forecast,
         },
+        "simulation_7d": sim_7d,
         "backtest": {
             "daily": {
                 "mape_1d": daily_bt.get(1),
