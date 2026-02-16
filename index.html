@@ -742,15 +742,29 @@ function hexToRgba(hex, alpha) {
    Data Loading
    ============================================================ */
 async function loadData() {
-  try {
-    const resp = await fetch('data/all_forecasts.json');
-    STATE.data = await resp.json();
-    init();
-  } catch (e) {
-    console.error('Failed to load forecast data:', e);
-    document.querySelector('.chart-wrapper').innerHTML =
-      '<div style="padding:60px;text-align:center;color:var(--text-muted)">데이터를 불러올 수 없습니다.</div>';
+  const paths = [
+    'data/all_forecasts.json',
+    './data/all_forecasts.json',
+    '../output/all_forecasts.json',
+    'output/all_forecasts.json',
+  ];
+
+  for (const path of paths) {
+    try {
+      const resp = await fetch(path);
+      if (!resp.ok) continue;
+      STATE.data = await resp.json();
+      if (STATE.data && Object.keys(STATE.data).length > 0) {
+        init();
+        return;
+      }
+    } catch (e) {
+      console.warn(`Failed to load from ${path}:`, e);
+    }
   }
+
+  document.querySelector('.chart-wrapper').innerHTML =
+    '<div style="padding:60px;text-align:center;color:var(--text-muted)">데이터를 불러올 수 없습니다.<br><small style="margin-top:8px;display:block">docs/data/all_forecasts.json 파일을 확인하세요.</small></div>';
 }
 
 /* ============================================================
