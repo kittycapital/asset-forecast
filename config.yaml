@@ -1,0 +1,35 @@
+## Asset Forecast - Configuration
+## 15 assets across 6 categories
+
+settings:
+  forecast_horizon:
+    daily: 90
+    weekly: 26
+    monthly: 12
+  backtest_window: 90
+  monte_carlo_simulations: 5000
+
+categories:
+  us_equity: { name: "US Stocks", name_ko: "미국 주식" }
+  global: { name: "Global", name_ko: "글로벌" }
+  dividend: { name: "Dividend", name_ko: "배당" }
+  commodity: { name: "Commodities", name_ko: "원자재" }
+  bond: { name: "Bonds", name_ko: "채권" }
+  crypto: { name: "Crypto", name_ko: "크립토" }
+
+assets:
+  SPY:     { name: "S&P 500 ETF",         category: us_equity, color: "#4fc3f7", source: yahoo, ticker: SPY }
+  QQQ:     { name: "Nasdaq 100 ETF",      category: us_equity, color: "#ab47bc", source: yahoo, ticker: QQQ }
+  DIA:     { name: "Dow Jones ETF",        category: us_equity, color: "#42a5f5", source: yahoo, ticker: DIA }
+  IWM:     { name: "Russell 2000 ETF",     category: us_equity, color: "#66bb6a", source: yahoo, ticker: IWM }
+  ARKK:    { name: "ARK Innovation ETF",   category: us_equity, color: "#ff7043", source: yahoo, ticker: ARKK }
+  EWY:     { name: "South Korea ETF",      category: global,    color: "#26c6da", source: yahoo, ticker: EWY }
+  EEM:     { name: "Emerging Markets ETF",  category: global,    color: "#8d6e63", source: yahoo, ticker: EEM }
+  SCHD:    { name: "Dividend ETF",         category: dividend,  color: "#5c6bc0", source: yahoo, ticker: SCHD }
+  GLD:     { name: "Gold ETF",             category: commodity, color: "#ffd700", source: yahoo, ticker: GLD }
+  SLV:     { name: "Silver ETF",           category: commodity, color: "#b0bec5", source: yahoo, ticker: SLV }
+  USO:     { name: "Oil ETF",              category: commodity, color: "#a1887f", source: yahoo, ticker: USO }
+  XLE:     { name: "Energy Sector ETF",    category: commodity, color: "#ef5350", source: yahoo, ticker: XLE }
+  TLT:     { name: "20+ Year Treasury ETF",category: bond,      color: "#78909c", source: yahoo, ticker: TLT }
+  BTC_USD: { name: "Bitcoin",              category: crypto,    color: "#f7931a", source: coingecko, coingecko_id: bitcoin }
+  ETH_USD: { name: "Ethereum",             category: crypto,    color: "#627eea", source: coingecko, coingecko_id: ethereum }
