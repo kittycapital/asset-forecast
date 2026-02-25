@@ -38,8 +38,9 @@ body::-webkit-scrollbar{display:none}
 .asset-btn.active{border-color:var(--ac,var(--hv-blue));background:var(--hv-bg-elevated);color:var(--hv-text-primary);box-shadow:0 0 0 1px var(--ac,var(--hv-blue)),inset 0 0 20px -10px var(--ac,var(--hv-blue))}
 .asset-btn.hidden{display:none}
 .ctrl-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
-.tab-group{display:flex;background:var(--hv-bg-card);border-radius:var(--hv-radius-sm);border:1px solid var(--hv-border);overflow:hidden}
-.tab-btn{font-family:var(--hv-font-body);font-size:.78rem;font-weight:600;padding:8px 16px;border:none;background:transparent;color:var(--hv-text-muted);cursor:pointer;transition:all var(--hv-transition);white-space:nowrap}
+.tab-group{display:flex;background:var(--hv-bg-card);border-radius:var(--hv-radius-sm);border:1px solid var(--hv-border);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tab-group::-webkit-scrollbar{display:none}
+.tab-btn{font-family:var(--hv-font-body);font-size:.78rem;font-weight:600;padding:8px 16px;border:none;background:transparent;color:var(--hv-text-muted);cursor:pointer;transition:all var(--hv-transition);white-space:nowrap;flex-shrink:0}
 .tab-btn:hover{color:var(--hv-text-secondary);background:var(--hv-bg-card-hover)}
 .tab-btn.active{color:var(--hv-text-primary);background:var(--hv-bg-elevated)}
 .range-group{display:flex;gap:3px}
@@ -99,6 +100,7 @@ body::-webkit-scrollbar{display:none}
 .asset-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:5px}
 .asset-btn{padding:7px 9px;font-size:.72rem}.asset-btn .tk{display:none}
 .ctrl-row{flex-direction:column;gap:8px}
+.tab-btn{padding:8px 12px;font-size:.72rem}
 .chart-card{padding:14px}.chart-head{flex-direction:column;align-items:flex-start;gap:8px}
 .chart-price{text-align:left}.chart-price .val{font-size:1.15rem}.chart-box{height:260px}
 .sum-grid{grid-template-columns:1fr;gap:7px}.bt-grid{grid-template-columns:1fr;gap:8px}
@@ -164,125 +166,34 @@ const ORDER=['SPY','QQQ','DIA','IWM','ARKK','EWY','EEM','SCHD','GLD','SLV','USO'
 function fmt(n,d){if(n==null)return'—';if(d===undefined)d=n>=1000?0:n>=100?1:2;return n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})}
 function fPct(n){if(n==null)return'—';return(n>=0?'+':'')+n.toFixed(2)+'%'}
 function rgba(hex,a){const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);return`rgba(${r},${g},${b},${a})`}
-
-async function loadData(){
-const paths=['data/all_forecasts.json','./data/all_forecasts.json','../output/all_forecasts.json'];
-for(const p of paths){try{const r=await fetch(p);if(!r.ok)continue;S.data=await r.json();if(S.data&&Object.keys(S.data).length>0){init();return}}catch(e){}}
-document.querySelector('.chart-box').innerHTML='<div style="padding:60px;text-align:center;color:var(--hv-text-muted)">데이터를 불러올 수 없습니다.</div>'}
-
-function init(){renderGrid();bindCats();bindTabs();bindRange();updateAll();
-const a=S.data[ORDER[0]];if(a)document.getElementById('lastUpdate').textContent=(a.generated_at||a.last_date).replace('T',' ').replace('Z',' UTC')}
-
-function renderGrid(){const g=document.getElementById('assetGrid');g.innerHTML='';
-ORDER.forEach(k=>{const a=S.data[k];if(!a)return;const b=document.createElement('button');
-b.className='asset-btn'+(k===S.asset?' active':'');b.dataset.asset=k;b.dataset.category=a.category;
-b.style.setProperty('--ac',a.color);b.innerHTML=`<span class="dot" style="background:${a.color}"></span>${a.name}<span class="tk">${k.replace('_USD','')}</span>`;
-b.onclick=()=>selAsset(k);g.appendChild(b)})}
-
+async function loadData(){const paths=['data/all_forecasts.json','./data/all_forecasts.json','../output/all_forecasts.json'];for(const p of paths){try{const r=await fetch(p);if(!r.ok)continue;S.data=await r.json();if(S.data&&Object.keys(S.data).length>0){init();return}}catch(e){}}document.querySelector('.chart-box').innerHTML='<div style="padding:60px;text-align:center;color:var(--hv-text-muted)">데이터를 불러올 수 없습니다.</div>'}
+function init(){renderGrid();bindCats();bindTabs();bindRange();updateAll();const a=S.data[ORDER[0]];if(a)document.getElementById('lastUpdate').textContent=(a.generated_at||a.last_date).replace('T',' ').replace('Z',' UTC')}
+function renderGrid(){const g=document.getElementById('assetGrid');g.innerHTML='';ORDER.forEach(k=>{const a=S.data[k];if(!a)return;const b=document.createElement('button');b.className='asset-btn'+(k===S.asset?' active':'');b.dataset.asset=k;b.dataset.category=a.category;b.style.setProperty('--ac',a.color);b.innerHTML=`<span class="dot" style="background:${a.color}"></span>${a.name}<span class="tk">${k.replace('_USD','')}</span>`;b.onclick=()=>selAsset(k);g.appendChild(b)})}
 function selAsset(k){S.asset=k;document.querySelectorAll('.asset-btn').forEach(b=>b.classList.toggle('active',b.dataset.asset===k));updateAll()}
-
 function bindCats(){document.querySelectorAll('.cat-btn').forEach(b=>{b.onclick=()=>{S.cat=b.dataset.cat;document.querySelectorAll('.cat-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');filterAssets()}})}
-function filterAssets(){document.querySelectorAll('.asset-btn').forEach(b=>{b.classList.toggle('hidden',S.cat!=='all'&&b.dataset.category!==S.cat)});
-const cur=document.querySelector(`.asset-btn[data-asset="${S.asset}"]`);if(cur&&cur.classList.contains('hidden')){const f=document.querySelector('.asset-btn:not(.hidden)');if(f)selAsset(f.dataset.asset)}}
-
+function filterAssets(){document.querySelectorAll('.asset-btn').forEach(b=>{b.classList.toggle('hidden',S.cat!=='all'&&b.dataset.category!==S.cat)});const cur=document.querySelector(`.asset-btn[data-asset="${S.asset}"]`);if(cur&&cur.classList.contains('hidden')){const f=document.querySelector('.asset-btn:not(.hidden)');if(f)selAsset(f.dataset.asset)}}
 function bindTabs(){document.querySelectorAll('#tfTabs .tab-btn').forEach(b=>{b.onclick=()=>{S.tf=b.dataset.tf;document.querySelectorAll('#tfTabs .tab-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('rangeGrp').style.display=S.tf==='sim7'?'none':'flex';updateAll()}})}
 function bindRange(){document.querySelectorAll('.range-btn').forEach(b=>{b.onclick=()=>{S.range=parseInt(b.dataset.range);document.querySelectorAll('.range-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');updateChart()}})}
-
 function updateAll(){updateChart();updateSummary();updateBacktest()}
-
-function updateChart(){const a=S.data[S.asset];if(!a)return;const c=a.color;
-document.getElementById('chartCbar').style.background=c;
-document.getElementById('chartTitle').innerHTML=`${a.name} <small>${S.asset.replace('_USD','')}</small>`;
-document.getElementById('chartPrice').textContent='$'+fmt(a.last_price);
-document.getElementById('chartSub').textContent='as of '+a.last_date;
-const lg=document.getElementById('simLegend');lg.style.display=S.tf==='sim7'?'flex':'none';
-document.getElementById('lgI1').style.background=c;
-document.getElementById('lgD1').style.borderColor=c;document.getElementById('lgD1').style.opacity='0.3';
-document.getElementById('lgI2').style.background=c;document.getElementById('lgI2').style.opacity='0.15';
-document.getElementById('lgI3').style.background=c;document.getElementById('lgI3').style.opacity='0.06';
-if(S.chart)S.chart.destroy();if(S.tf==='sim7')renderSim7(a,c);else renderForecast(a,c)}
-
+function updateChart(){const a=S.data[S.asset];if(!a)return;const c=a.color;document.getElementById('chartCbar').style.background=c;document.getElementById('chartTitle').innerHTML=`${a.name} <small>${S.asset.replace('_USD','')}</small>`;document.getElementById('chartPrice').textContent='$'+fmt(a.last_price);document.getElementById('chartSub').textContent='as of '+a.last_date;const lg=document.getElementById('simLegend');lg.style.display=S.tf==='sim7'?'flex':'none';document.getElementById('lgI1').style.background=c;document.getElementById('lgD1').style.borderColor=c;document.getElementById('lgD1').style.opacity='0.3';document.getElementById('lgI2').style.background=c;document.getElementById('lgI2').style.opacity='0.15';document.getElementById('lgI3').style.background=c;document.getElementById('lgI3').style.opacity='0.06';if(S.chart)S.chart.destroy();if(S.tf==='sim7')renderSim7(a,c);else renderForecast(a,c)}
 const wmPlugin={id:'wm',beforeDraw(ch){const{ctx:cx,chartArea:ca}=ch;cx.save();cx.font='600 11px "JetBrains Mono"';cx.fillStyle='rgba(255,255,255,0.04)';cx.textAlign='right';cx.fillText('herdvibe.com',ca.right-4,ca.bottom-8);cx.restore()}};
 const ttOpts={backgroundColor:'#1a1a1a',borderColor:'rgba(255,255,255,0.12)',borderWidth:1,titleColor:'#e5e5e5',bodyColor:'#8a8a8a',titleFont:{family:"'Noto Sans KR'",weight:'600',size:12},bodyFont:{family:"'JetBrains Mono'",size:11},padding:12,cornerRadius:8,displayColors:false};
 const scaleOpts={x:{grid:{color:'rgba(255,255,255,0.03)',drawTicks:false},ticks:{color:'#555',font:{family:"'JetBrains Mono'",size:10},maxTicksLimit:8},border:{display:false}},y:{position:'right',grid:{color:'rgba(255,255,255,0.03)',drawTicks:false},ticks:{color:'#555',font:{family:"'JetBrains Mono'",size:10},callback:v=>'$'+fmt(v)},border:{display:false}}};
-
-function renderSim7(a,c){const sim=a.simulation_7d;if(!sim)return;
-const ds=[];
-ds.push({label:'90U',data:sim.upper_90,borderColor:'transparent',backgroundColor:'transparent',pointRadius:0,fill:false,order:10});
-ds.push({label:'90B',data:sim.lower_90,borderColor:'transparent',backgroundColor:rgba(c,0.06),pointRadius:0,fill:'-1',order:10});
-ds.push({label:'70U',data:sim.upper_70,borderColor:'transparent',backgroundColor:'transparent',pointRadius:0,fill:false,order:9});
-ds.push({label:'70B',data:sim.lower_70,borderColor:'transparent',backgroundColor:rgba(c,0.15),pointRadius:0,fill:'-1',order:9});
-sim.paths.forEach((p,i)=>{ds.push({label:i===0?'경로':'',data:p,borderColor:rgba(c,0.18),backgroundColor:'transparent',borderWidth:1,pointRadius:0,tension:0.3,fill:false,order:5})});
-ds.push({label:'예측',data:sim.predicted,borderColor:c,backgroundColor:'transparent',borderWidth:2.5,pointRadius:3,pointBackgroundColor:c,pointBorderColor:'#111',pointBorderWidth:1.5,tension:0.3,fill:false,order:1});
-const ctx=document.getElementById('mainChart').getContext('2d');
-S.chart=new Chart(ctx,{type:'line',data:{labels:sim.dates,datasets:ds},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},layout:{padding:{top:8}},scales:scaleOpts,plugins:{legend:{display:false},tooltip:{...ttOpts,filter:it=>['예측','70U','70B','90U','90B'].includes(it.dataset.label),callbacks:{label:ctx=>{const l=ctx.dataset.label;if(l==='예측')return'예측: $'+fmt(ctx.parsed.y);if(l==='70U')return'70% 상단: $'+fmt(ctx.parsed.y);if(l==='70B')return'70% 하단: $'+fmt(ctx.parsed.y);if(l==='90U')return'90% 상단: $'+fmt(ctx.parsed.y);if(l==='90B')return'90% 하단: $'+fmt(ctx.parsed.y);return''}}}}},plugins:[wmPlugin]})}
-
-function renderForecast(a,c){const tf=S.tf,fc=a.forecast[tf];
-let hist=a.historical.map(h=>({x:new Date(h.date),y:h.price}));
-if(S.range>0){const cut=new Date();cut.setDate(cut.getDate()-S.range);hist=hist.filter(h=>h.x>=cut)}
-const fP=fc.map(f=>({x:new Date(f.date),y:f.predicted})),fU9=fc.map(f=>({x:new Date(f.date),y:f.upper_90})),fL9=fc.map(f=>({x:new Date(f.date),y:f.lower_90})),fU7=fc.map(f=>({x:new Date(f.date),y:f.upper_70})),fL7=fc.map(f=>({x:new Date(f.date),y:f.lower_70}));
-const br=hist.length>0?[hist[hist.length-1]]:[];
-const ds=[
-{label:'90U',data:[...br,...fU9],borderColor:'transparent',backgroundColor:'transparent',pointRadius:0,fill:false,order:5},
-{label:'90B',data:[...br,...fL9],borderColor:'transparent',backgroundColor:rgba(c,0.06),pointRadius:0,fill:'-1',order:5},
-{label:'70U',data:[...br,...fU7],borderColor:'transparent',backgroundColor:'transparent',pointRadius:0,fill:false,order:4},
-{label:'70B',data:[...br,...fL7],borderColor:'transparent',backgroundColor:rgba(c,0.15),pointRadius:0,fill:'-1',order:4},
-{label:'과거',data:hist,borderColor:rgba(c,0.7),borderWidth:1.5,pointRadius:0,pointHoverRadius:3,pointHoverBackgroundColor:c,tension:0.1,fill:false,order:2},
-{label:'예측',data:[...br,...fP],borderColor:c,borderWidth:2,borderDash:[6,4],pointRadius:0,pointHoverRadius:3,pointHoverBackgroundColor:c,tension:0.1,fill:false,order:1}];
-const todayLine={id:'tl',beforeDraw(ch){const{ctx:cx,chartArea:ca,scales:sc}=ch;const xv=sc.x.getPixelForValue(new Date(a.last_date));if(xv>=ca.left&&xv<=ca.right){cx.save();cx.beginPath();cx.setLineDash([3,3]);cx.strokeStyle='rgba(255,255,255,0.1)';cx.lineWidth=1;cx.moveTo(xv,ca.top);cx.lineTo(xv,ca.bottom);cx.stroke();cx.fillStyle='rgba(255,255,255,0.15)';cx.font='500 9px "JetBrains Mono"';cx.textAlign='center';cx.fillText('TODAY',xv,ca.top-5);cx.restore()}}};
-const ctx=document.getElementById('mainChart').getContext('2d');
-S.chart=new Chart(ctx,{type:'line',data:{datasets:ds},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},layout:{padding:{top:14}},scales:{...scaleOpts,x:{...scaleOpts.x,type:'time',time:{tooltipFormat:'yyyy-MM-dd',displayFormats:{day:'MMM d',week:'MMM d',month:'MMM yyyy'}}}},plugins:{legend:{display:false},tooltip:{...ttOpts,callbacks:{label:ctx=>{const l=ctx.dataset.label;if(l==='과거')return'가격: $'+fmt(ctx.parsed.y);if(l==='예측')return'예측: $'+fmt(ctx.parsed.y);if(l==='70U')return'70% 상단: $'+fmt(ctx.parsed.y);if(l==='70B')return'70% 하단: $'+fmt(ctx.parsed.y);if(l==='90U')return'90% 상단: $'+fmt(ctx.parsed.y);if(l==='90B')return'90% 하단: $'+fmt(ctx.parsed.y);return''}}}}},plugins:[wmPlugin,todayLine]})}
-
-function updateSummary(){const a=S.data[S.asset];if(!a)return;const lp=a.last_price;
-document.getElementById('sC').textContent='$'+fmt(lp);document.getElementById('sCc').textContent=a.last_date;document.getElementById('sCc').className='chg';document.getElementById('sCc').style.color='var(--hv-text-muted)';document.getElementById('sCr').textContent='';
-if(S.tf==='sim7'){const sim=a.simulation_7d;if(!sim)return;
-const d7=sim.predicted[sim.predicted.length-1],d3=sim.predicted[Math.min(3,sim.predicted.length-1)];
-document.getElementById('sMl').textContent='3일 예측';document.getElementById('sM').textContent='$'+fmt(d3);
-const p3=((d3-lp)/lp)*100;document.getElementById('sMc').textContent=fPct(p3);document.getElementById('sMc').className='chg '+(p3>=0?'up':'dn');
-document.getElementById('sMr').textContent=`90% 범위: $${fmt(sim.lower_90[Math.min(3,sim.lower_90.length-1)])} — $${fmt(sim.upper_90[Math.min(3,sim.upper_90.length-1)])}`;
-document.getElementById('sLl').textContent='7일 예측';document.getElementById('sL').textContent='$'+fmt(d7);
-const p7=((d7-lp)/lp)*100;document.getElementById('sLc').textContent=fPct(p7);document.getElementById('sLc').className='chg '+(p7>=0?'up':'dn');
-document.getElementById('sLr').textContent=`90% 범위: $${fmt(sim.lower_90[sim.lower_90.length-1])} — $${fmt(sim.upper_90[sim.upper_90.length-1])}`;return}
-const tf=S.tf,fc=a.forecast[tf];let mi,li,ml,ll;
-if(tf==='daily'){mi=Math.min(6,fc.length-1);li=Math.min(29,fc.length-1);ml='7일 예측';ll='30일 예측'}
-else if(tf==='weekly'){mi=Math.min(3,fc.length-1);li=Math.min(12,fc.length-1);ml='4주 예측';ll='13주 예측'}
-else{mi=Math.min(2,fc.length-1);li=Math.min(5,fc.length-1);ml='3개월 예측';ll='6개월 예측'}
-const mf=fc[mi],lf=fc[li];
-document.getElementById('sMl').textContent=ml;document.getElementById('sM').textContent='$'+fmt(mf.predicted);
-const mp=((mf.predicted-lp)/lp)*100;document.getElementById('sMc').textContent=fPct(mp);document.getElementById('sMc').className='chg '+(mp>=0?'up':'dn');
-document.getElementById('sMr').textContent=`90% 범위: $${fmt(mf.lower_90)} — $${fmt(mf.upper_90)}`;
-document.getElementById('sLl').textContent=ll;document.getElementById('sL').textContent='$'+fmt(lf.predicted);
-const lpp=((lf.predicted-lp)/lp)*100;document.getElementById('sLc').textContent=fPct(lpp);document.getElementById('sLc').className='chg '+(lpp>=0?'up':'dn');
-document.getElementById('sLr').textContent=`90% 범위: $${fmt(lf.lower_90)} — $${fmt(lf.upper_90)}`}
-
-function updateBacktest(){const a=S.data[S.asset];if(!a)return;const tf=S.tf==='sim7'?'daily':S.tf;const bt=a.backtest[tf];const grid=document.getElementById('btGrid');
-let items=[];
-if(tf==='daily')items=[{l:'1일',k:'mape_1d'},{l:'7일',k:'mape_7d'},{l:'30일',k:'mape_30d'}];
-else if(tf==='weekly')items=[{l:'1주',k:'mape_1w'},{l:'4주',k:'mape_4w'},{l:'13주',k:'mape_13w'}];
-else items=[{l:'1개월',k:'mape_1m'},{l:'3개월',k:'mape_3m'},{l:'6개월',k:'mape_6m'}];
-grid.innerHTML=items.map(it=>{const v=bt[it.k];const w=v!=null?Math.min(100,(v/20)*100):0;const gc=v==null?'var(--hv-text-muted)':v<2?'var(--hv-up)':v<5?'var(--hv-orange)':'var(--hv-down)';const g=v==null?'—':v<2?'🟢':v<5?'🟡':'🔴';
-return`<div class="bt-item"><div class="bt-lbl">${it.l} 예측</div><div class="bt-track"><div class="bt-fill" style="width:${w}%;background:${gc}"></div></div><div class="bt-val" style="color:${gc}">${g} MAPE ${v!=null?v.toFixed(2)+'%':'—'}</div></div>`}).join('')}
-
-/* Share */
+function renderSim7(a,c){const sim=a.simulation_7d;if(!sim)return;const ds=[];ds.push({label:'90U',data:sim.upper_90,borderColor:'transparent',backgroundColor:'transparent',pointRadius:0,fill:false,order:10});ds.push({label:'90B',data:sim.lower_90,borderColor:'transparent',backgroundColor:rgba(c,0.06),pointRadius:0,fill:'-1',order:10});ds.push({label:'70U',data:sim.upper_70,borderColor:'transparent',backgroundColor:'transparent',pointRadius:0,fill:false,order:9});ds.push({label:'70B',data:sim.lower_70,borderColor:'transparent',backgroundColor:rgba(c,0.15),pointRadius:0,fill:'-1',order:9});sim.paths.forEach((p,i)=>{ds.push({label:i===0?'경로':'',data:p,borderColor:rgba(c,0.18),backgroundColor:'transparent',borderWidth:1,pointRadius:0,tension:0.3,fill:false,order:5})});ds.push({label:'예측',data:sim.predicted,borderColor:c,backgroundColor:'transparent',borderWidth:2.5,pointRadius:3,pointBackgroundColor:c,pointBorderColor:'#111',pointBorderWidth:1.5,tension:0.3,fill:false,order:1});const ctx=document.getElementById('mainChart').getContext('2d');S.chart=new Chart(ctx,{type:'line',data:{labels:sim.dates,datasets:ds},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},layout:{padding:{top:8}},scales:scaleOpts,plugins:{legend:{display:false},tooltip:{...ttOpts,filter:it=>['예측','70U','70B','90U','90B'].includes(it.dataset.label),callbacks:{label:ctx=>{const l=ctx.dataset.label;if(l==='예측')return'예측: $'+fmt(ctx.parsed.y);if(l==='70U')return'70% 상단: $'+fmt(ctx.parsed.y);if(l==='70B')return'70% 하단: $'+fmt(ctx.parsed.y);if(l==='90U')return'90% 상단: $'+fmt(ctx.parsed.y);if(l==='90B')return'90% 하단: $'+fmt(ctx.parsed.y);return''}}}}},plugins:[wmPlugin]})}
+function renderForecast(a,c){const tf=S.tf,fc=a.forecast[tf];let hist=a.historical.map(h=>({x:new Date(h.date),y:h.price}));if(S.range>0){const cut=new Date();cut.setDate(cut.getDate()-S.range);hist=hist.filter(h=>h.x>=cut)}const fP=fc.map(f=>({x:new Date(f.date),y:f.predicted})),fU9=fc.map(f=>({x:new Date(f.date),y:f.upper_90})),fL9=fc.map(f=>({x:new Date(f.date),y:f.lower_90})),fU7=fc.map(f=>({x:new Date(f.date),y:f.upper_70})),fL7=fc.map(f=>({x:new Date(f.date),y:f.lower_70}));const br=hist.length>0?[hist[hist.length-1]]:[];const ds=[{label:'90U',data:[...br,...fU9],borderColor:'transparent',backgroundColor:'transparent',pointRadius:0,fill:false,order:5},{label:'90B',data:[...br,...fL9],borderColor:'transparent',backgroundColor:rgba(c,0.06),pointRadius:0,fill:'-1',order:5},{label:'70U',data:[...br,...fU7],borderColor:'transparent',backgroundColor:'transparent',pointRadius:0,fill:false,order:4},{label:'70B',data:[...br,...fL7],borderColor:'transparent',backgroundColor:rgba(c,0.15),pointRadius:0,fill:'-1',order:4},{label:'과거',data:hist,borderColor:rgba(c,0.7),borderWidth:1.5,pointRadius:0,pointHoverRadius:3,pointHoverBackgroundColor:c,tension:0.1,fill:false,order:2},{label:'예측',data:[...br,...fP],borderColor:c,borderWidth:2,borderDash:[6,4],pointRadius:0,pointHoverRadius:3,pointHoverBackgroundColor:c,tension:0.1,fill:false,order:1}];const todayLine={id:'tl',beforeDraw(ch){const{ctx:cx,chartArea:ca,scales:sc}=ch;const xv=sc.x.getPixelForValue(new Date(a.last_date));if(xv>=ca.left&&xv<=ca.right){cx.save();cx.beginPath();cx.setLineDash([3,3]);cx.strokeStyle='rgba(255,255,255,0.1)';cx.lineWidth=1;cx.moveTo(xv,ca.top);cx.lineTo(xv,ca.bottom);cx.stroke();cx.fillStyle='rgba(255,255,255,0.15)';cx.font='500 9px "JetBrains Mono"';cx.textAlign='center';cx.fillText('TODAY',xv,ca.top-5);cx.restore()}}};const ctx=document.getElementById('mainChart').getContext('2d');S.chart=new Chart(ctx,{type:'line',data:{datasets:ds},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},layout:{padding:{top:14}},scales:{...scaleOpts,x:{...scaleOpts.x,type:'time',time:{tooltipFormat:'yyyy-MM-dd',displayFormats:{day:'MMM d',week:'MMM d',month:'MMM yyyy'}}}},plugins:{legend:{display:false},tooltip:{...ttOpts,callbacks:{label:ctx=>{const l=ctx.dataset.label;if(l==='과거')return'가격: $'+fmt(ctx.parsed.y);if(l==='예측')return'예측: $'+fmt(ctx.parsed.y);if(l==='70U')return'70% 상단: $'+fmt(ctx.parsed.y);if(l==='70B')return'70% 하단: $'+fmt(ctx.parsed.y);if(l==='90U')return'90% 상단: $'+fmt(ctx.parsed.y);if(l==='90B')return'90% 하단: $'+fmt(ctx.parsed.y);return''}}}}},plugins:[wmPlugin,todayLine]})}
+function updateSummary(){const a=S.data[S.asset];if(!a)return;const lp=a.last_price;document.getElementById('sC').textContent='$'+fmt(lp);document.getElementById('sCc').textContent=a.last_date;document.getElementById('sCc').className='chg';document.getElementById('sCc').style.color='var(--hv-text-muted)';document.getElementById('sCr').textContent='';if(S.tf==='sim7'){const sim=a.simulation_7d;if(!sim)return;const d7=sim.predicted[sim.predicted.length-1],d3=sim.predicted[Math.min(3,sim.predicted.length-1)];document.getElementById('sMl').textContent='3일 예측';document.getElementById('sM').textContent='$'+fmt(d3);const p3=((d3-lp)/lp)*100;document.getElementById('sMc').textContent=fPct(p3);document.getElementById('sMc').className='chg '+(p3>=0?'up':'dn');document.getElementById('sMr').textContent=`90% 범위: $${fmt(sim.lower_90[Math.min(3,sim.lower_90.length-1)])} — $${fmt(sim.upper_90[Math.min(3,sim.upper_90.length-1)])}`;document.getElementById('sLl').textContent='7일 예측';document.getElementById('sL').textContent='$'+fmt(d7);const p7=((d7-lp)/lp)*100;document.getElementById('sLc').textContent=fPct(p7);document.getElementById('sLc').className='chg '+(p7>=0?'up':'dn');document.getElementById('sLr').textContent=`90% 범위: $${fmt(sim.lower_90[sim.lower_90.length-1])} — $${fmt(sim.upper_90[sim.upper_90.length-1])}`;return}const tf=S.tf,fc=a.forecast[tf];let mi,li,ml,ll;if(tf==='daily'){mi=Math.min(6,fc.length-1);li=Math.min(29,fc.length-1);ml='7일 예측';ll='30일 예측'}else if(tf==='weekly'){mi=Math.min(3,fc.length-1);li=Math.min(12,fc.length-1);ml='4주 예측';ll='13주 예측'}else{mi=Math.min(2,fc.length-1);li=Math.min(5,fc.length-1);ml='3개월 예측';ll='6개월 예측'}const mf=fc[mi],lf=fc[li];document.getElementById('sMl').textContent=ml;document.getElementById('sM').textContent='$'+fmt(mf.predicted);const mp=((mf.predicted-lp)/lp)*100;document.getElementById('sMc').textContent=fPct(mp);document.getElementById('sMc').className='chg '+(mp>=0?'up':'dn');document.getElementById('sMr').textContent=`90% 범위: $${fmt(mf.lower_90)} — $${fmt(mf.upper_90)}`;document.getElementById('sLl').textContent=ll;document.getElementById('sL').textContent='$'+fmt(lf.predicted);const lpp=((lf.predicted-lp)/lp)*100;document.getElementById('sLc').textContent=fPct(lpp);document.getElementById('sLc').className='chg '+(lpp>=0?'up':'dn');document.getElementById('sLr').textContent=`90% 범위: $${fmt(lf.lower_90)} — $${fmt(lf.upper_90)}`}
+function updateBacktest(){const a=S.data[S.asset];if(!a)return;const tf=S.tf==='sim7'?'daily':S.tf;const bt=a.backtest[tf];const grid=document.getElementById('btGrid');let items=[];if(tf==='daily')items=[{l:'1일',k:'mape_1d'},{l:'7일',k:'mape_7d'},{l:'30일',k:'mape_30d'}];else if(tf==='weekly')items=[{l:'1주',k:'mape_1w'},{l:'4주',k:'mape_4w'},{l:'13주',k:'mape_13w'}];else items=[{l:'1개월',k:'mape_1m'},{l:'3개월',k:'mape_3m'},{l:'6개월',k:'mape_6m'}];grid.innerHTML=items.map(it=>{const v=bt[it.k];const w=v!=null?Math.min(100,(v/20)*100):0;const gc=v==null?'var(--hv-text-muted)':v<2?'var(--hv-up)':v<5?'var(--hv-orange)':'var(--hv-down)';const g=v==null?'—':v<2?'🟢':v<5?'🟡':'🔴';return`<div class="bt-item"><div class="bt-lbl">${it.l} 예측</div><div class="bt-track"><div class="bt-fill" style="width:${w}%;background:${gc}"></div></div><div class="bt-val" style="color:${gc}">${g} MAPE ${v!=null?v.toFixed(2)+'%':'—'}</div></div>`}).join('')}
 var SHARE_URL='https://herdvibe.com/69';
 function ensureKakao(){try{if(typeof Kakao!=='undefined'&&!Kakao.isInitialized())Kakao.init('a43ed7b39fac35458f4f9df925a279b5');return typeof Kakao!=='undefined'&&Kakao.isInitialized()}catch(e){return false}}
 ensureKakao();
 function copyToClipboard(t){try{window.parent.postMessage({type:'clipboard',text:t},'*')}catch(e){}try{navigator.clipboard.writeText(t)}catch(e){}}
 function flashCopied(btn){if(!btn)return;var o=btn.innerHTML;btn.style.background='#22c55e';btn.style.color='#fff';btn.style.borderColor='#22c55e';btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg><span class="sl" style="color:#fff">복사됨!</span>';setTimeout(()=>{btn.style.background='';btn.style.color='';btn.style.borderColor='';btn.innerHTML=o},2000)}
-function doShare(p,btn){const u=SHARE_URL,t=encodeURIComponent('자산 예측 모델 | herdvibe.com'),eu=encodeURIComponent(u);
-switch(p){case'twitter':window.open('https://twitter.com/intent/tweet?text='+t+'&url='+eu,'_blank');break;
-case'telegram':window.open('https://t.me/share/url?url='+eu+'&text='+t,'_blank');break;
-case'kakao':if(!ensureKakao()){copyToClipboard(u);toast('링크 복사완료!')}else try{Kakao.Share.sendDefault({objectType:'feed',content:{title:'자산 예측 모델',description:'15개 글로벌 자산 가격 예측 대시보드',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{mobileWebUrl:u,webUrl:u}},buttons:[{title:'대시보드 보기',link:{mobileWebUrl:u,webUrl:u}}]})}catch(e){copyToClipboard(u);toast('링크 복사완료!')}break;
-case'instagram':copyToClipboard(u);flashCopied(btn);toast('링크 복사완료! 인스타그램에 붙여넣기 하세요');break;
-case'link':copyToClipboard(u);flashCopied(btn);toast('링크가 복사되었습니다 ✓');break}}
+function doShare(p,btn){const u=SHARE_URL,t=encodeURIComponent('자산 예측 모델 | herdvibe.com'),eu=encodeURIComponent(u);switch(p){case'twitter':window.open('https://twitter.com/intent/tweet?text='+t+'&url='+eu,'_blank');break;case'telegram':window.open('https://t.me/share/url?url='+eu+'&text='+t,'_blank');break;case'kakao':if(!ensureKakao()){copyToClipboard(u);toast('링크 복사완료!')}else try{Kakao.Share.sendDefault({objectType:'feed',content:{title:'자산 예측 모델',description:'15개 글로벌 자산 가격 예측 대시보드',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{mobileWebUrl:u,webUrl:u}},buttons:[{title:'대시보드 보기',link:{mobileWebUrl:u,webUrl:u}}]})}catch(e){copyToClipboard(u);toast('링크 복사완료!')}break;case'instagram':copyToClipboard(u);flashCopied(btn);toast('링크 복사완료! 인스타그램에 붙여넣기 하세요');break;case'link':copyToClipboard(u);flashCopied(btn);toast('링크가 복사되었습니다 ✓');break}}
 function toast(m){let c=document.querySelector('.toast-wrap');if(!c){c=document.createElement('div');c.className='toast-wrap';document.body.appendChild(c)}const t=document.createElement('div');t.className='toast';t.textContent=m;c.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(12px)';t.style.transition='.3s';setTimeout(()=>t.remove(),300)},3000)}
-
-/* iframe resize */
 var _lastH=0,_ht,_frameId='hvAssetForecast';
 function sendHeight(){clearTimeout(_ht);_ht=setTimeout(()=>{const el=document.querySelector('.hv-page');const h=el?el.offsetTop+el.offsetHeight+20:document.body.scrollHeight;if(Math.abs(h-_lastH)>5){_lastH=h;window.parent.postMessage({type:'resize',height:h,id:_frameId},'*');window.parent.postMessage({height:h,id:_frameId},'*')}},150)}
 window.addEventListener('resize',sendHeight);window.addEventListener('load',()=>{sendHeight();setTimeout(sendHeight,500);setTimeout(sendHeight,1500)});
 new MutationObserver(sendHeight).observe(document.body,{childList:true,subtree:true});setInterval(sendHeight,2000);
-
 loadData();
 </script>
 </body>
