@@ -276,7 +276,7 @@ function renderChart(r){
     },
     scales:{
       x:{grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#777',font:{size:9},maxTicksLimit:12,maxRotation:0}},
-      y:{position:'right',grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#777',font:{size:9},callback:function(v){return'$'+fmtP(v)}}}
+      y:{type:'logarithmic',position:'right',grid:{color:'rgba(255,255,255,0.02)'},ticks:{color:'#777',font:{size:9},callback:function(v){return'$'+fmtP(v)}}}
     }
   }});
 }
