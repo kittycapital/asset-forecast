@@ -83,6 +83,11 @@ body::-webkit-scrollbar{display:none}
 .sparkline-cell{width:80px;height:24px}
 .sparkline-cell canvas{width:80px!important;height:24px!important}
 .ov-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.ctrl-row{display:flex;justify-content:center;margin-bottom:14px}
+.tab-group{display:flex;background:var(--hv-bg-card);border-radius:var(--hv-radius-sm);border:1px solid var(--hv-border);overflow:hidden}
+.tab-btn{font-family:var(--hv-font-body);font-size:.82rem;font-weight:600;padding:9px 24px;border:none;background:transparent;color:var(--hv-text-muted);cursor:pointer;transition:all var(--hv-transition);white-space:nowrap}
+.tab-btn:hover{color:var(--hv-text-secondary);background:var(--hv-bg-card-hover)}
+.tab-btn.active{color:var(--hv-text-primary);background:var(--hv-bg-elevated)}
 .loading-overlay{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 0;gap:14px}
 .spinner{width:28px;height:28px;border:2.5px solid #222;border-top-color:var(--hv-cyan);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -98,6 +103,7 @@ body::-webkit-scrollbar{display:none}
   .sum-grid{grid-template-columns:repeat(3,1fr);gap:7px}
   .sum-card{padding:12px 10px}.sum-card .val{font-size:.95rem}
   .chart-card-body{padding:14px}.chart-box{height:260px}
+  .ctrl-row{margin-bottom:10px}.tab-btn{padding:8px 18px;font-size:.75rem}
   .share-bar{flex-direction:column;gap:10px;align-items:stretch}.share-bar-preview{max-width:100%}
   .share-bar-buttons{justify-content:center;flex-wrap:wrap}.share-btn .sl{display:none}.share-btn{padding:8px 10px}
   .sparkline-cell{width:60px}.sparkline-cell canvas{width:60px!important}
@@ -106,7 +112,7 @@ body::-webkit-scrollbar{display:none}
 </style>
 </head>
 <body>
-<header class="hv-header"><div class="hv-header-inner"><div class="hv-header-center"><h1>멀티 에셋 프랙탈 예측</h1><div class="hv-header-sub">Multi-Asset Fractal · 15 Assets · 30D → 7D</div></div><div class="hv-header-right"><div class="hv-update-badge"><span class="hv-live-dot"></span><span id="lastUpdate">—</span></div></div></div></header>
+<header class="hv-header"><div class="hv-header-inner"><div class="hv-header-center"><h1>멀티 에셋 프랙탈 예측</h1><div class="hv-header-sub">Multi-Asset Fractal · 15 Assets</div></div><div class="hv-header-right"><div class="hv-update-badge"><span class="hv-live-dot"></span><span id="lastUpdate">—</span></div></div></div></header>
 <div class="hv-page">
 <div class="cat-bar" id="catBar">
 <button class="cat-btn active" data-cat="all">전체</button>
@@ -118,6 +124,12 @@ body::-webkit-scrollbar{display:none}
 <button class="cat-btn" data-cat="crypto">크립토</button>
 </div>
 <div class="asset-grid" id="assetGrid"></div>
+<div class="ctrl-row" id="tfRow">
+<div class="tab-group">
+<button class="tab-btn active" data-mode="7d" onclick="switchMode('7d')">7일 예측</button>
+<button class="tab-btn" data-mode="30d" onclick="switchMode('30d')">30일 예측</button>
+</div>
+</div>
 <div id="mainContent"><div class="loading-overlay"><div class="spinner"></div><div class="loading-text">데이터 로딩 중...</div></div></div>
 </div>
 
@@ -141,9 +153,9 @@ var ASSETS={
   ETH_USD:{name:'이더리움',cat:'crypto',color:'#627eea',file:'ETH_USD.csv'}
 };
 var ORDER=['SPY','QQQ','DIA','IWM','ARKK','EWY','EEM','SCHD','GLD','SLV','USO','XLE','TLT','BTC_USD','ETH_USD'];
-var LB=30,FW=7,TOP_N=15;
+var MODES={'7d':{lb:30,fw:7,label:'7일',lbLabel:'30일'},'30d':{lb:90,fw:30,label:'30일',lbLabel:'90일'}};
 var OV_C=['#06b6d4','#a855f7','#ff8c42'];
-var csvCache={},curAsset='SPY',curResult=null,mainChart=null,selOv=[];
+var csvCache={},curAsset='SPY',curMode='7d',curResult=null,mainChart=null,selOv=[];
 
 /* ===== CSV ===== */
 function loadCSV(ticker){
@@ -171,6 +183,7 @@ function pears(a,b){
 
 /* ===== ANALYSIS ===== */
 function analyze(data){
+  var mode=MODES[curMode],LB=mode.lb,FW=mode.fw,TOP_N=15;
   var prices=data.map(function(d){return d.price});
   var dates=data.map(function(d){return d.date});
   var n=prices.length;
@@ -211,7 +224,7 @@ function analyze(data){
 }
 
 /* ===== CHART ===== */
-var wmPlugin={id:'wm',beforeDraw:function(ch){var cx=ch.ctx,ca=ch.chartArea;if(!ca)return;cx.save();cx.font='700 28px "Plus Jakarta Sans",sans-serif';cx.fillStyle='rgba(255,255,255,0.03)';cx.textAlign='center';cx.textBaseline='middle';cx.fillText('Herdvibe.com',(ca.left+ca.right)/2,(ca.top+ca.bottom)/2);cx.restore()}};
+var wmPlugin={id:'wm',beforeDraw:function(ch){var cx=ch.ctx,ca=ch.chartArea;if(!ca)return;cx.save();cx.font='800 36px "Plus Jakarta Sans",sans-serif';cx.fillStyle='rgba(255,255,255,0.03)';cx.textAlign='center';cx.textBaseline='middle';cx.fillText('Herdvibe.com',(ca.left+ca.right)/2,(ca.top+ca.bottom)/2);cx.restore()}};
 var divPlugin={id:'div',afterDraw:function(ch){var meta=ch.getDatasetMeta(0);if(!meta||!meta.data)return;var lp=null;for(var i=meta.data.length-1;i>=0;i--){if(ch.data.datasets[0].data[i]!==null){lp=meta.data[i];break}}if(!lp)return;var ctx=ch.ctx,yA=ch.scales.y;ctx.save();ctx.beginPath();ctx.setLineDash([4,4]);ctx.strokeStyle='#333';ctx.lineWidth=1;ctx.moveTo(lp.x,yA.top);ctx.lineTo(lp.x,yA.bottom);ctx.stroke();ctx.font="500 9px 'JetBrains Mono'";ctx.fillStyle='#555';ctx.textAlign='center';ctx.fillText('오늘',lp.x,yA.top-4);ctx.restore()}};
 Chart.register(wmPlugin,divPlugin);
 Chart.defaults.color='#666';Chart.defaults.borderColor='#1a1a1a';
@@ -286,7 +299,7 @@ function fmtPct(v,base){var p=((v-base)/base*100);return(p>=0?'+':'')+p.toFixed(
 
 /* ===== RENDER ===== */
 function renderDashboard(r){
-  var asset=ASSETS[curAsset];
+  var asset=ASSETS[curAsset],mode=MODES[curMode],fwL=mode.label,lbL=mode.lbLabel;
   if(r.error){
     document.getElementById('mainContent').innerHTML='<div class="loading-overlay"><div style="color:var(--hv-down);font-size:.85rem">'+r.error+'</div></div>';
     return;
@@ -305,14 +318,14 @@ function renderDashboard(r){
   document.getElementById('mainContent').innerHTML=
     '<div class="sum-grid">'+
       '<div class="sum-card"><div class="lbl">현재가</div><div class="val" style="color:'+c+'">$'+fmtP(cp)+'</div><div class="sub">'+r.cd+'</div></div>'+
-      '<div class="sum-card"><div class="lbl">강세 예측 (7일)</div><div class="val" style="color:var(--hv-up)">$'+fmtP(r.bullT)+'</div><div class="sub" style="color:var(--hv-up)">'+fmtPct(r.bullT,cp)+'</div></div>'+
-      '<div class="sum-card"><div class="lbl">평균 예측 (7일)</div><div class="val" style="color:var(--hv-warning)">$'+fmtP(r.avgT)+'</div><div class="sub" style="color:'+(r.avgT>=cp?'var(--hv-up)':'var(--hv-down)')+'">'+fmtPct(r.avgT,cp)+'</div></div>'+
-      '<div class="sum-card"><div class="lbl">약세 예측 (7일)</div><div class="val" style="color:var(--hv-down)">$'+fmtP(r.bearT)+'</div><div class="sub" style="color:var(--hv-down)">'+fmtPct(r.bearT,cp)+'</div></div>'+
-      '<div class="sum-card"><div class="lbl">7일 상승 확률</div><div class="val" style="color:'+(r.wr>=50?'var(--hv-up)':'var(--hv-down)')+'">'+r.wr+'%</div><div class="sub">'+r.top.filter(function(m){return m.ffr>0}).length+' / '+r.top.length+'</div></div>'+
+      '<div class="sum-card"><div class="lbl">강세 예측 ('+fwL+')</div><div class="val" style="color:var(--hv-up)">$'+fmtP(r.bullT)+'</div><div class="sub" style="color:var(--hv-up)">'+fmtPct(r.bullT,cp)+'</div></div>'+
+      '<div class="sum-card"><div class="lbl">평균 예측 ('+fwL+')</div><div class="val" style="color:var(--hv-warning)">$'+fmtP(r.avgT)+'</div><div class="sub" style="color:'+(r.avgT>=cp?'var(--hv-up)':'var(--hv-down)')+'">'+fmtPct(r.avgT,cp)+'</div></div>'+
+      '<div class="sum-card"><div class="lbl">약세 예측 ('+fwL+')</div><div class="val" style="color:var(--hv-down)">$'+fmtP(r.bearT)+'</div><div class="sub" style="color:var(--hv-down)">'+fmtPct(r.bearT,cp)+'</div></div>'+
+      '<div class="sum-card"><div class="lbl">'+fwL+' 상승 확률</div><div class="val" style="color:'+(r.wr>=50?'var(--hv-up)':'var(--hv-down)')+'">'+r.wr+'%</div><div class="sub">'+r.top.filter(function(m){return m.ffr>0}).length+' / '+r.top.length+'</div></div>'+
       '<div class="sum-card"><div class="lbl">패턴 신뢰도</div><div class="val"><span class="conf-badge '+cC+'">'+cL+'</span></div><div class="sub">평균 상관계수 '+r.ac.toFixed(3)+'</div></div>'+
     '</div>'+
     '<div class="chart-card">'+
-      '<div class="chart-card-head"><h2>'+asset.name+' 프랙탈 예측<span class="hsub">30일 패턴 → 7일 투영</span></h2></div>'+
+      '<div class="chart-card-head"><h2>'+asset.name+' 프랙탈 예측<span class="hsub">'+lbL+' 패턴 → '+fwL+' 투영</span></h2></div>'+
       '<div class="chart-card-body"><div class="chart-box"><canvas id="mainChart"></canvas></div></div>'+
       '<div class="share-bar">'+
         '<div class="share-bar-preview"><span>'+asset.name+' 프랙탈 예측</span> — herdvibe.com</div>'+
@@ -327,7 +340,7 @@ function renderDashboard(r){
     '<div class="match-card">'+
       '<div class="match-card-head"><h2>상위 유사 패턴 (피어슨 상관계수 기준)</h2></div>'+
       '<div class="match-hint">패턴을 클릭하면 차트에 오버레이됩니다 (최대 3개)</div>'+
-      '<div style="overflow-x:auto"><table class="match-table"><thead><tr><th>#</th><th>기간</th><th>상관계수</th><th>7일 수익률</th><th>7일 경로</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
+      '<div style="overflow-x:auto"><table class="match-table"><thead><tr><th>#</th><th>기간</th><th>상관계수</th><th>'+fwL+' 수익률</th><th>'+fwL+' 경로</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
     '</div>'+
     '<div class="disc">본 자료는 정보 제공 목적이며 투자 조언이 아닙니다. 과거 패턴은 미래 수익을 보장하지 않습니다.<br>투자 결정은 본인의 판단에 따라 이루어져야 합니다. <a href="https://herdvibe.com" target="_blank" style="color:var(--hv-text-tertiary);font-family:var(--hv-font-mono)">herdvibe.com</a></div>';
 
@@ -350,6 +363,13 @@ function togOv(idx){
   renderChart(curResult);
 }
 
+/* ===== MODE SWITCH ===== */
+function switchMode(mode){
+  curMode=mode;
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.toggle('active',b.dataset.mode===mode)});
+  runAnalysis();
+}
+
 /* ===== ASSET GRID ===== */
 function renderGrid(){
   var g=document.getElementById('assetGrid');g.innerHTML='';
@@ -368,10 +388,14 @@ function renderGrid(){
 async function selAsset(k){
   curAsset=k;selOv=[];
   document.querySelectorAll('.asset-btn').forEach(function(b){b.classList.toggle('active',b.dataset.asset===k)});
-  var asset=ASSETS[k];
-  document.getElementById('mainContent').innerHTML='<div class="loading-overlay"><div class="spinner"></div><div class="loading-text">'+asset.name+' 분석 중...</div></div>';
+  runAnalysis();
+}
+
+async function runAnalysis(){
+  var asset=ASSETS[curAsset],mode=MODES[curMode];
+  document.getElementById('mainContent').innerHTML='<div class="loading-overlay"><div class="spinner"></div><div class="loading-text">'+asset.name+' '+mode.label+' 분석 중...</div></div>';
   try{
-    var data=await loadCSV(k);
+    var data=await loadCSV(curAsset);
     var result=analyze(data);
     renderDashboard(result);
   }catch(e){
@@ -404,12 +428,12 @@ function ensureKakao(){try{if(typeof Kakao!=='undefined'&&!Kakao.isInitialized()
 ensureKakao();
 function doShare(p,btn){
   var a=ASSETS[curAsset],u=SHARE_URL;
-  var t=encodeURIComponent(a.name+' 프랙탈 예측 — 향후 7일 시나리오 | herdvibe.com'),eu=encodeURIComponent(u);
+  var t=encodeURIComponent(a.name+' 프랙탈 예측 — 향후 '+MODES[curMode].label+' 시나리오 | herdvibe.com'),eu=encodeURIComponent(u);
   switch(p){
     case'twitter':window.open('https://twitter.com/intent/tweet?text='+t+'&url='+eu,'_blank');break;
     case'telegram':window.open('https://t.me/share/url?url='+eu+'&text='+t,'_blank');break;
     case'kakao':if(!ensureKakao()){cpClip(u);toast('링크 복사완료!');return}
-      try{Kakao.Share.sendDefault({objectType:'feed',content:{title:a.name+' 프랙탈 예측 | Herdvibe',description:'멀티 에셋 프랙탈 — 과거 30일 패턴 기반 향후 7일 가격 시나리오',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{mobileWebUrl:u,webUrl:u}},buttons:[{title:'대시보드 보기',link:{mobileWebUrl:u,webUrl:u}}]})}catch(e){cpClip(u);toast('링크 복사완료!')}break;
+      try{Kakao.Share.sendDefault({objectType:'feed',content:{title:a.name+' 프랙탈 예측 | Herdvibe',description:'멀티 에셋 프랙탈 — 과거 패턴 기반 향후 '+MODES[curMode].label+' 가격 시나리오',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{mobileWebUrl:u,webUrl:u}},buttons:[{title:'대시보드 보기',link:{mobileWebUrl:u,webUrl:u}}]})}catch(e){cpClip(u);toast('링크 복사완료!')}break;
     case'link':cpClip(u);flashCp(btn);toast('링크가 복사되었습니다');break;
   }
 }
@@ -431,7 +455,7 @@ window.addEventListener('message',function(e){if(e.data&&e.data.type==='requestR
 window.addEventListener('resize',sendHeight);
 
 /* ===== INIT ===== */
-renderGrid();bindCats();selAsset('SPY');
+renderGrid();bindCats();runAnalysis();
 </script>
 </body>
 </html>
