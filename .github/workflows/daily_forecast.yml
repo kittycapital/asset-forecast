@@ -37,6 +37,7 @@ jobs:
         run: |
           mkdir -p docs/data
           cp output/all_forecasts.json docs/data/
+          cp -r data/raw/ docs/data/raw/
 
       - name: Commit and push
         run: |
