@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>자산 프랙탈 예측 | Herdvibe</title>
+<title>멀티 에셋 프랙탈 예측 | Herdvibe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -106,7 +106,7 @@ body::-webkit-scrollbar{display:none}
 </style>
 </head>
 <body>
-<header class="hv-header"><div class="hv-header-inner"><div class="hv-header-center"><h1>자산 프랙탈 예측</h1><div class="hv-header-sub">Asset Fractal · 15 Assets · 30D → 7D</div></div><div class="hv-header-right"><div class="hv-update-badge"><span class="hv-live-dot"></span><span id="lastUpdate">—</span></div></div></div></header>
+<header class="hv-header"><div class="hv-header-inner"><div class="hv-header-center"><h1>멀티 에셋 프랙탈 예측</h1><div class="hv-header-sub">Multi-Asset Fractal · 15 Assets · 30D → 7D</div></div><div class="hv-header-right"><div class="hv-update-badge"><span class="hv-live-dot"></span><span id="lastUpdate">—</span></div></div></div></header>
 <div class="hv-page">
 <div class="cat-bar" id="catBar">
 <button class="cat-btn active" data-cat="all">전체</button>
@@ -211,7 +211,7 @@ function analyze(data){
 }
 
 /* ===== CHART ===== */
-var wmPlugin={id:'wm',beforeDraw:function(ch){var cx=ch.ctx,ca=ch.chartArea;if(!ca)return;cx.save();cx.font='600 11px "JetBrains Mono"';cx.fillStyle='rgba(255,255,255,0.04)';cx.textAlign='right';cx.fillText('herdvibe.com',ca.right-4,ca.bottom-8);cx.restore()}};
+var wmPlugin={id:'wm',beforeDraw:function(ch){var cx=ch.ctx,ca=ch.chartArea;if(!ca)return;cx.save();cx.font='700 28px "Plus Jakarta Sans",sans-serif';cx.fillStyle='rgba(255,255,255,0.03)';cx.textAlign='center';cx.textBaseline='middle';cx.fillText('Herdvibe.com',(ca.left+ca.right)/2,(ca.top+ca.bottom)/2);cx.restore()}};
 var divPlugin={id:'div',afterDraw:function(ch){var meta=ch.getDatasetMeta(0);if(!meta||!meta.data)return;var lp=null;for(var i=meta.data.length-1;i>=0;i--){if(ch.data.datasets[0].data[i]!==null){lp=meta.data[i];break}}if(!lp)return;var ctx=ch.ctx,yA=ch.scales.y;ctx.save();ctx.beginPath();ctx.setLineDash([4,4]);ctx.strokeStyle='#333';ctx.lineWidth=1;ctx.moveTo(lp.x,yA.top);ctx.lineTo(lp.x,yA.bottom);ctx.stroke();ctx.font="500 9px 'JetBrains Mono'";ctx.fillStyle='#555';ctx.textAlign='center';ctx.fillText('오늘',lp.x,yA.top-4);ctx.restore()}};
 Chart.register(wmPlugin,divPlugin);
 Chart.defaults.color='#666';Chart.defaults.borderColor='#1a1a1a';
@@ -409,7 +409,7 @@ function doShare(p,btn){
     case'twitter':window.open('https://twitter.com/intent/tweet?text='+t+'&url='+eu,'_blank');break;
     case'telegram':window.open('https://t.me/share/url?url='+eu+'&text='+t,'_blank');break;
     case'kakao':if(!ensureKakao()){cpClip(u);toast('링크 복사완료!');return}
-      try{Kakao.Share.sendDefault({objectType:'feed',content:{title:a.name+' 프랙탈 예측 | Herdvibe',description:'과거 30일 패턴 기반 향후 7일 가격 시나리오',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{mobileWebUrl:u,webUrl:u}},buttons:[{title:'대시보드 보기',link:{mobileWebUrl:u,webUrl:u}}]})}catch(e){cpClip(u);toast('링크 복사완료!')}break;
+      try{Kakao.Share.sendDefault({objectType:'feed',content:{title:a.name+' 프랙탈 예측 | Herdvibe',description:'멀티 에셋 프랙탈 — 과거 30일 패턴 기반 향후 7일 가격 시나리오',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{mobileWebUrl:u,webUrl:u}},buttons:[{title:'대시보드 보기',link:{mobileWebUrl:u,webUrl:u}}]})}catch(e){cpClip(u);toast('링크 복사완료!')}break;
     case'link':cpClip(u);flashCp(btn);toast('링크가 복사되었습니다');break;
   }
 }
