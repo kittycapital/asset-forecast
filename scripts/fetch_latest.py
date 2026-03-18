@@ -137,9 +137,11 @@ def main():
                 continue
 
             if new_data is not None and len(new_data) > 0:
-                # Append to existing CSV
+                # Append to existing CSV, deduplicate by date (keep last)
                 existing = pd.read_csv(filepath)
                 combined = pd.concat([existing, new_data], ignore_index=True)
+                combined = combined.drop_duplicates(subset=["Date"], keep="last")
+                combined = combined.sort_values("Date").reset_index(drop=True)
                 combined.to_csv(filepath, index=False)
                 print(f"  ✓ Updated {filepath}")
                 updated += 1
