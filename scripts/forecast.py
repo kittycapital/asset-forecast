@@ -59,6 +59,7 @@ def load_asset_data(filepath):
     df = df[["Date", "Close", "High", "Low", "Open", "Volume"]].copy()
     df["Close"] = pd.to_numeric(df["Close"], errors="coerce")
     df = df.dropna(subset=["Close"])
+    df = df.drop_duplicates(subset=["Date"], keep="last").reset_index(drop=True)
     return df
 
 
