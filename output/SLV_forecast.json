@@ -3,14 +3,10 @@
   "name": "\uc740",
   "category": "commodity",
   "color": "#b0bec5",
-  "generated_at": "2026-06-25T07:22:55Z",
-  "last_price": 51.78,
-  "last_date": "2026-06-24",
+  "generated_at": "2026-06-26T07:29:06Z",
+  "last_price": 52.36,
+  "last_date": "2026-06-25",
   "historical": [
-    {
-      "date": "2025-06-24",
-      "price": 32.61
-    },
     {
       "date": "2025-06-25",
       "price": 33.01
@@ -1014,1320 +1010,1324 @@
     {
       "date": "2026-06-24",
       "price": 51.78
+    },
+    {
+      "date": "2026-06-25",
+      "price": 52.36
     }
   ],
   "forecast": {
     "daily": [
       {
-        "date": "2026-06-25",
-        "predicted": 51.42,
-        "lower_70": 49.63,
-        "upper_70": 53.29,
-        "lower_90": 48.62,
-        "upper_90": 54.32
-      },
-      {
         "date": "2026-06-26",
-        "predicted": 51.04,
-        "lower_70": 48.43,
-        "upper_70": 53.66,
-        "lower_90": 46.97,
-        "upper_90": 55.26
+        "predicted": 51.98,
+        "lower_70": 50.14,
+        "upper_70": 53.85,
+        "lower_90": 49.12,
+        "upper_90": 55.02
       },
       {
         "date": "2026-06-27",
-        "predicted": 50.7,
-        "lower_70": 47.54,
-        "upper_70": 53.81,
-        "lower_90": 45.71,
-        "upper_90": 55.84
+        "predicted": 51.57,
+        "lower_70": 48.95,
+        "upper_70": 54.29,
+        "lower_90": 47.63,
+        "upper_90": 55.99
       },
       {
         "date": "2026-06-28",
-        "predicted": 50.24,
-        "lower_70": 46.77,
-        "upper_70": 54.0,
-        "lower_90": 44.72,
-        "upper_90": 56.29
+        "predicted": 51.19,
+        "lower_70": 48.09,
+        "upper_70": 54.46,
+        "lower_90": 46.43,
+        "upper_90": 56.63
       },
       {
         "date": "2026-06-29",
-        "predicted": 49.88,
-        "lower_70": 46.03,
-        "upper_70": 54.09,
-        "lower_90": 43.73,
-        "upper_90": 56.59
-      },
-      {
-        "date": "2026-06-30",
-        "predicted": 49.53,
-        "lower_70": 45.38,
-        "upper_70": 54.06,
-        "lower_90": 42.88,
-        "upper_90": 56.91
-      },
-      {
-        "date": "2026-07-01",
-        "predicted": 49.18,
-        "lower_70": 44.66,
-        "upper_70": 54.0,
-        "lower_90": 42.14,
-        "upper_90": 57.05
-      },
-      {
-        "date": "2026-07-02",
-        "predicted": 48.76,
-        "lower_70": 43.99,
-        "upper_70": 53.94,
-        "lower_90": 41.55,
-        "upper_90": 57.1
-      },
-      {
-        "date": "2026-07-03",
-        "predicted": 48.46,
-        "lower_70": 43.44,
-        "upper_70": 53.81,
-        "lower_90": 40.78,
-        "upper_90": 57.24
-      },
-      {
-        "date": "2026-07-04",
-        "predicted": 48.11,
-        "lower_70": 42.88,
-        "upper_70": 53.95,
-        "lower_90": 40.11,
-        "upper_90": 57.28
-      },
-      {
-        "date": "2026-07-05",
-        "predicted": 47.71,
-        "lower_70": 42.25,
-        "upper_70": 53.58,
-        "lower_90": 39.4,
-        "upper_90": 57.55
-      },
-      {
-        "date": "2026-07-06",
-        "predicted": 47.4,
-        "lower_70": 41.82,
-        "upper_70": 53.51,
-        "lower_90": 38.77,
-        "upper_90": 57.7
-      },
-      {
-        "date": "2026-07-07",
-        "predicted": 46.96,
-        "lower_70": 41.21,
-        "upper_70": 53.52,
-        "lower_90": 38.25,
-        "upper_90": 57.95
-      },
-      {
-        "date": "2026-07-08",
-        "predicted": 46.57,
-        "lower_70": 40.87,
-        "upper_70": 53.19,
-        "lower_90": 37.68,
-        "upper_90": 57.6
-      },
-      {
-        "date": "2026-07-09",
-        "predicted": 46.21,
-        "lower_70": 40.26,
-        "upper_70": 53.12,
-        "lower_90": 37.11,
-        "upper_90": 57.4
-      },
-      {
-        "date": "2026-07-10",
-        "predicted": 45.9,
-        "lower_70": 39.78,
-        "upper_70": 52.99,
-        "lower_90": 36.66,
-        "upper_90": 57.55
-      },
-      {
-        "date": "2026-07-11",
-        "predicted": 45.66,
-        "lower_70": 39.37,
-        "upper_70": 52.86,
-        "lower_90": 36.03,
-        "upper_90": 57.52
-      },
-      {
-        "date": "2026-07-12",
-        "predicted": 45.27,
-        "lower_70": 38.81,
-        "upper_70": 52.63,
-        "lower_90": 35.54,
-        "upper_90": 57.5
-      },
-      {
-        "date": "2026-07-13",
-        "predicted": 44.91,
-        "lower_70": 38.44,
-        "upper_70": 52.45,
-        "lower_90": 35.17,
-        "upper_90": 57.15
-      },
-      {
-        "date": "2026-07-14",
-        "predicted": 44.56,
-        "lower_70": 37.95,
-        "upper_70": 52.05,
-        "lower_90": 34.64,
-        "upper_90": 57.3
-      },
-      {
-        "date": "2026-07-15",
-        "predicted": 44.23,
-        "lower_70": 37.48,
-        "upper_70": 51.94,
-        "lower_90": 34.01,
-        "upper_90": 57.45
-      },
-      {
-        "date": "2026-07-16",
-        "predicted": 43.88,
-        "lower_70": 37.07,
-        "upper_70": 51.87,
-        "lower_90": 33.61,
-        "upper_90": 57.17
-      },
-      {
-        "date": "2026-07-17",
-        "predicted": 43.62,
-        "lower_70": 36.71,
-        "upper_70": 51.56,
-        "lower_90": 33.02,
+        "predicted": 50.77,
+        "lower_70": 47.28,
+        "upper_70": 54.65,
+        "lower_90": 45.38,
         "upper_90": 57.06
       },
       {
+        "date": "2026-06-30",
+        "predicted": 50.33,
+        "lower_70": 46.5,
+        "upper_70": 54.68,
+        "lower_90": 44.36,
+        "upper_90": 57.38
+      },
+      {
+        "date": "2026-07-01",
+        "predicted": 49.93,
+        "lower_70": 45.81,
+        "upper_70": 54.77,
+        "lower_90": 43.61,
+        "upper_90": 57.53
+      },
+      {
+        "date": "2026-07-02",
+        "predicted": 49.66,
+        "lower_70": 45.17,
+        "upper_70": 54.71,
+        "lower_90": 42.68,
+        "upper_90": 57.92
+      },
+      {
+        "date": "2026-07-03",
+        "predicted": 49.31,
+        "lower_70": 44.58,
+        "upper_70": 54.67,
+        "lower_90": 42.14,
+        "upper_90": 58.11
+      },
+      {
+        "date": "2026-07-04",
+        "predicted": 48.94,
+        "lower_70": 44.06,
+        "upper_70": 54.59,
+        "lower_90": 41.35,
+        "upper_90": 58.19
+      },
+      {
+        "date": "2026-07-05",
+        "predicted": 48.6,
+        "lower_70": 43.44,
+        "upper_70": 54.42,
+        "lower_90": 40.64,
+        "upper_90": 58.23
+      },
+      {
+        "date": "2026-07-06",
+        "predicted": 48.2,
+        "lower_70": 42.93,
+        "upper_70": 54.43,
+        "lower_90": 39.93,
+        "upper_90": 58.26
+      },
+      {
+        "date": "2026-07-07",
+        "predicted": 47.87,
+        "lower_70": 42.4,
+        "upper_70": 54.3,
+        "lower_90": 39.42,
+        "upper_90": 58.33
+      },
+      {
+        "date": "2026-07-08",
+        "predicted": 47.44,
+        "lower_70": 41.8,
+        "upper_70": 54.16,
+        "lower_90": 38.82,
+        "upper_90": 58.16
+      },
+      {
+        "date": "2026-07-09",
+        "predicted": 47.17,
+        "lower_70": 41.28,
+        "upper_70": 53.96,
+        "lower_90": 38.21,
+        "upper_90": 58.33
+      },
+      {
+        "date": "2026-07-10",
+        "predicted": 46.81,
+        "lower_70": 40.77,
+        "upper_70": 53.86,
+        "lower_90": 37.56,
+        "upper_90": 58.25
+      },
+      {
+        "date": "2026-07-11",
+        "predicted": 46.38,
+        "lower_70": 40.29,
+        "upper_70": 53.74,
+        "lower_90": 37.13,
+        "upper_90": 58.16
+      },
+      {
+        "date": "2026-07-12",
+        "predicted": 46.08,
+        "lower_70": 40.01,
+        "upper_70": 53.45,
+        "lower_90": 36.53,
+        "upper_90": 58.45
+      },
+      {
+        "date": "2026-07-13",
+        "predicted": 45.75,
+        "lower_70": 39.51,
+        "upper_70": 53.43,
+        "lower_90": 35.99,
+        "upper_90": 58.26
+      },
+      {
+        "date": "2026-07-14",
+        "predicted": 45.4,
+        "lower_70": 39.15,
+        "upper_70": 53.2,
+        "lower_90": 35.64,
+        "upper_90": 58.31
+      },
+      {
+        "date": "2026-07-15",
+        "predicted": 45.28,
+        "lower_70": 38.69,
+        "upper_70": 53.13,
+        "lower_90": 35.31,
+        "upper_90": 57.97
+      },
+      {
+        "date": "2026-07-16",
+        "predicted": 44.87,
+        "lower_70": 38.22,
+        "upper_70": 52.78,
+        "lower_90": 34.85,
+        "upper_90": 57.92
+      },
+      {
+        "date": "2026-07-17",
+        "predicted": 44.61,
+        "lower_70": 37.86,
+        "upper_70": 52.69,
+        "lower_90": 34.4,
+        "upper_90": 58.11
+      },
+      {
         "date": "2026-07-18",
-        "predicted": 43.26,
-        "lower_70": 36.23,
-        "upper_70": 51.42,
-        "lower_90": 32.55,
-        "upper_90": 57.03
+        "predicted": 44.32,
+        "lower_70": 37.41,
+        "upper_70": 52.3,
+        "lower_90": 33.9,
+        "upper_90": 57.47
       },
       {
         "date": "2026-07-19",
-        "predicted": 42.89,
-        "lower_70": 35.96,
-        "upper_70": 51.3,
-        "lower_90": 32.22,
-        "upper_90": 57.02
+        "predicted": 43.95,
+        "lower_70": 36.96,
+        "upper_70": 52.08,
+        "lower_90": 33.37,
+        "upper_90": 57.47
       },
       {
         "date": "2026-07-20",
-        "predicted": 42.66,
-        "lower_70": 35.57,
-        "upper_70": 51.09,
-        "lower_90": 31.86,
-        "upper_90": 56.67
+        "predicted": 43.66,
+        "lower_70": 36.45,
+        "upper_70": 51.89,
+        "lower_90": 32.99,
+        "upper_90": 57.56
       },
       {
         "date": "2026-07-21",
-        "predicted": 42.31,
-        "lower_70": 35.15,
-        "upper_70": 50.69,
-        "lower_90": 31.37,
-        "upper_90": 56.78
+        "predicted": 43.3,
+        "lower_70": 36.04,
+        "upper_70": 51.65,
+        "lower_90": 32.55,
+        "upper_90": 57.47
       },
       {
         "date": "2026-07-22",
-        "predicted": 42.11,
-        "lower_70": 34.72,
-        "upper_70": 50.49,
-        "lower_90": 30.97,
-        "upper_90": 56.53
+        "predicted": 42.95,
+        "lower_70": 35.76,
+        "upper_70": 51.44,
+        "lower_90": 32.09,
+        "upper_90": 57.54
       },
       {
         "date": "2026-07-23",
-        "predicted": 41.8,
-        "lower_70": 34.32,
-        "upper_70": 50.6,
-        "lower_90": 30.65,
-        "upper_90": 56.72
+        "predicted": 42.64,
+        "lower_70": 35.32,
+        "upper_70": 51.33,
+        "lower_90": 31.77,
+        "upper_90": 57.66
       },
       {
         "date": "2026-07-24",
-        "predicted": 41.55,
-        "lower_70": 33.95,
-        "upper_70": 50.35,
-        "lower_90": 30.12,
-        "upper_90": 56.5
+        "predicted": 42.33,
+        "lower_70": 34.97,
+        "upper_70": 51.09,
+        "lower_90": 31.23,
+        "upper_90": 57.26
       },
       {
         "date": "2026-07-25",
-        "predicted": 41.23,
-        "lower_70": 33.54,
-        "upper_70": 50.03,
-        "lower_90": 29.75,
-        "upper_90": 56.3
+        "predicted": 42.06,
+        "lower_70": 34.54,
+        "upper_70": 50.86,
+        "lower_90": 30.88,
+        "upper_90": 57.23
       },
       {
         "date": "2026-07-26",
-        "predicted": 40.92,
-        "lower_70": 33.14,
-        "upper_70": 49.89,
-        "lower_90": 29.4,
-        "upper_90": 56.14
+        "predicted": 41.77,
+        "lower_70": 34.29,
+        "upper_70": 50.8,
+        "lower_90": 30.41,
+        "upper_90": 57.17
       },
       {
         "date": "2026-07-27",
-        "predicted": 40.57,
-        "lower_70": 32.8,
-        "upper_70": 49.73,
-        "lower_90": 29.2,
-        "upper_90": 56.01
+        "predicted": 41.41,
+        "lower_70": 33.87,
+        "upper_70": 50.44,
+        "lower_90": 30.15,
+        "upper_90": 56.8
       },
       {
         "date": "2026-07-28",
-        "predicted": 40.23,
-        "lower_70": 32.43,
-        "upper_70": 49.47,
-        "lower_90": 28.77,
-        "upper_90": 56.02
+        "predicted": 41.04,
+        "lower_70": 33.58,
+        "upper_70": 50.39,
+        "lower_90": 29.72,
+        "upper_90": 57.13
       },
       {
         "date": "2026-07-29",
-        "predicted": 39.95,
-        "lower_70": 32.15,
-        "upper_70": 49.31,
-        "lower_90": 28.41,
-        "upper_90": 55.84
+        "predicted": 40.7,
+        "lower_70": 33.22,
+        "upper_70": 50.1,
+        "lower_90": 29.32,
+        "upper_90": 56.89
       },
       {
         "date": "2026-07-30",
-        "predicted": 39.57,
-        "lower_70": 31.74,
-        "upper_70": 49.0,
-        "lower_90": 28.04,
-        "upper_90": 55.59
+        "predicted": 40.39,
+        "lower_70": 32.82,
+        "upper_70": 50.0,
+        "lower_90": 29.07,
+        "upper_90": 56.61
       },
       {
         "date": "2026-07-31",
-        "predicted": 39.39,
-        "lower_70": 31.42,
-        "upper_70": 48.76,
-        "lower_90": 27.74,
-        "upper_90": 55.73
+        "predicted": 40.18,
+        "lower_70": 32.69,
+        "upper_70": 49.84,
+        "lower_90": 28.73,
+        "upper_90": 56.2
       },
       {
         "date": "2026-08-01",
-        "predicted": 39.13,
-        "lower_70": 31.14,
-        "upper_70": 48.67,
-        "lower_90": 27.35,
-        "upper_90": 55.76
+        "predicted": 39.85,
+        "lower_70": 32.42,
+        "upper_70": 49.67,
+        "lower_90": 28.18,
+        "upper_90": 55.96
       },
       {
         "date": "2026-08-02",
-        "predicted": 38.69,
-        "lower_70": 30.81,
-        "upper_70": 48.37,
-        "lower_90": 26.94,
-        "upper_90": 55.58
+        "predicted": 39.71,
+        "lower_70": 31.95,
+        "upper_70": 49.49,
+        "lower_90": 27.78,
+        "upper_90": 55.95
       },
       {
         "date": "2026-08-03",
-        "predicted": 38.4,
-        "lower_70": 30.68,
-        "upper_70": 48.07,
-        "lower_90": 26.61,
-        "upper_90": 55.3
+        "predicted": 39.34,
+        "lower_70": 31.55,
+        "upper_70": 49.25,
+        "lower_90": 27.64,
+        "upper_90": 55.79
       },
       {
         "date": "2026-08-04",
-        "predicted": 38.25,
-        "lower_70": 30.26,
-        "upper_70": 47.77,
-        "lower_90": 26.3,
-        "upper_90": 54.9
+        "predicted": 39.03,
+        "lower_70": 31.23,
+        "upper_70": 48.98,
+        "lower_90": 27.29,
+        "upper_90": 55.41
       },
       {
         "date": "2026-08-05",
-        "predicted": 37.87,
-        "lower_70": 29.94,
-        "upper_70": 47.69,
-        "lower_90": 25.97,
-        "upper_90": 54.77
+        "predicted": 38.76,
+        "lower_70": 30.84,
+        "upper_70": 48.79,
+        "lower_90": 27.04,
+        "upper_90": 55.8
       },
       {
         "date": "2026-08-06",
-        "predicted": 37.49,
-        "lower_70": 29.56,
-        "upper_70": 47.49,
-        "lower_90": 25.75,
-        "upper_90": 54.53
+        "predicted": 38.51,
+        "lower_70": 30.6,
+        "upper_70": 48.55,
+        "lower_90": 26.58,
+        "upper_90": 55.45
       },
       {
         "date": "2026-08-07",
-        "predicted": 37.26,
-        "lower_70": 29.23,
-        "upper_70": 47.34,
-        "lower_90": 25.37,
-        "upper_90": 54.32
+        "predicted": 38.11,
+        "lower_70": 30.33,
+        "upper_70": 48.39,
+        "lower_90": 26.33,
+        "upper_90": 55.48
       },
       {
         "date": "2026-08-08",
-        "predicted": 36.97,
-        "lower_70": 28.94,
-        "upper_70": 46.93,
-        "lower_90": 25.08,
-        "upper_90": 54.47
+        "predicted": 37.92,
+        "lower_70": 30.08,
+        "upper_70": 48.23,
+        "lower_90": 26.01,
+        "upper_90": 55.5
       },
       {
         "date": "2026-08-09",
-        "predicted": 36.48,
-        "lower_70": 28.71,
-        "upper_70": 46.68,
-        "lower_90": 24.77,
-        "upper_90": 54.07
+        "predicted": 37.67,
+        "lower_70": 29.69,
+        "upper_70": 47.98,
+        "lower_90": 25.69,
+        "upper_90": 55.4
       },
       {
         "date": "2026-08-10",
-        "predicted": 36.24,
-        "lower_70": 28.4,
-        "upper_70": 46.51,
-        "lower_90": 24.5,
-        "upper_90": 53.72
+        "predicted": 37.48,
+        "lower_70": 29.41,
+        "upper_70": 47.81,
+        "lower_90": 25.47,
+        "upper_90": 55.1
       },
       {
         "date": "2026-08-11",
-        "predicted": 35.99,
-        "lower_70": 28.06,
-        "upper_70": 46.39,
-        "lower_90": 24.23,
-        "upper_90": 53.66
+        "predicted": 37.2,
+        "lower_70": 29.16,
+        "upper_70": 47.74,
+        "lower_90": 25.12,
+        "upper_90": 54.9
       },
       {
         "date": "2026-08-12",
-        "predicted": 35.81,
-        "lower_70": 27.79,
-        "upper_70": 46.02,
-        "lower_90": 24.02,
-        "upper_90": 53.44
+        "predicted": 36.88,
+        "lower_70": 28.9,
+        "upper_70": 47.37,
+        "lower_90": 24.85,
+        "upper_90": 54.74
       },
       {
         "date": "2026-08-13",
-        "predicted": 35.54,
-        "lower_70": 27.56,
-        "upper_70": 45.84,
-        "lower_90": 23.7,
-        "upper_90": 53.15
+        "predicted": 36.56,
+        "lower_70": 28.56,
+        "upper_70": 47.36,
+        "lower_90": 24.72,
+        "upper_90": 54.58
       },
       {
         "date": "2026-08-14",
-        "predicted": 35.33,
-        "lower_70": 27.25,
-        "upper_70": 45.64,
-        "lower_90": 23.54,
-        "upper_90": 52.99
+        "predicted": 36.4,
+        "lower_70": 28.26,
+        "upper_70": 47.2,
+        "lower_90": 24.35,
+        "upper_90": 54.36
       },
       {
         "date": "2026-08-15",
-        "predicted": 35.09,
-        "lower_70": 27.03,
-        "upper_70": 45.53,
-        "lower_90": 23.11,
-        "upper_90": 53.07
+        "predicted": 36.0,
+        "lower_70": 28.03,
+        "upper_70": 46.8,
+        "lower_90": 23.86,
+        "upper_90": 53.92
       },
       {
         "date": "2026-08-16",
-        "predicted": 34.8,
-        "lower_70": 26.7,
-        "upper_70": 45.08,
-        "lower_90": 22.87,
-        "upper_90": 52.54
+        "predicted": 35.87,
+        "lower_70": 27.7,
+        "upper_70": 46.54,
+        "lower_90": 23.62,
+        "upper_90": 54.03
       },
       {
         "date": "2026-08-17",
-        "predicted": 34.55,
-        "lower_70": 26.44,
-        "upper_70": 44.99,
-        "lower_90": 22.46,
-        "upper_90": 52.51
+        "predicted": 35.51,
+        "lower_70": 27.45,
+        "upper_70": 46.32,
+        "lower_90": 23.47,
+        "upper_90": 53.6
       },
       {
         "date": "2026-08-18",
-        "predicted": 34.26,
-        "lower_70": 26.13,
-        "upper_70": 44.72,
-        "lower_90": 22.35,
-        "upper_90": 52.3
+        "predicted": 35.2,
+        "lower_70": 27.19,
+        "upper_70": 46.15,
+        "lower_90": 23.32,
+        "upper_90": 53.62
       },
       {
         "date": "2026-08-19",
-        "predicted": 34.01,
-        "lower_70": 25.98,
-        "upper_70": 44.28,
-        "lower_90": 21.97,
-        "upper_90": 52.16
+        "predicted": 35.03,
+        "lower_70": 26.98,
+        "upper_70": 45.7,
+        "lower_90": 23.12,
+        "upper_90": 53.36
       },
       {
         "date": "2026-08-20",
-        "predicted": 33.65,
-        "lower_70": 25.74,
-        "upper_70": 44.21,
-        "lower_90": 21.88,
-        "upper_90": 51.97
+        "predicted": 34.83,
+        "lower_70": 26.7,
+        "upper_70": 45.54,
+        "lower_90": 22.84,
+        "upper_90": 53.33
       },
       {
         "date": "2026-08-21",
-        "predicted": 33.49,
-        "lower_70": 25.47,
-        "upper_70": 43.92,
-        "lower_90": 21.5,
-        "upper_90": 51.66
+        "predicted": 34.46,
+        "lower_70": 26.4,
+        "upper_70": 45.15,
+        "lower_90": 22.61,
+        "upper_90": 52.76
       },
       {
         "date": "2026-08-22",
-        "predicted": 33.25,
-        "lower_70": 25.08,
-        "upper_70": 43.57,
-        "lower_90": 21.35,
-        "upper_90": 51.69
+        "predicted": 34.2,
+        "lower_70": 26.12,
+        "upper_70": 45.08,
+        "lower_90": 22.24,
+        "upper_90": 52.75
       },
       {
         "date": "2026-08-23",
-        "predicted": 33.06,
-        "lower_70": 24.95,
-        "upper_70": 43.37,
-        "lower_90": 21.09,
-        "upper_90": 51.61
+        "predicted": 34.05,
+        "lower_70": 25.83,
+        "upper_70": 44.82,
+        "lower_90": 22.06,
+        "upper_90": 52.61
       },
       {
         "date": "2026-08-24",
-        "predicted": 32.72,
-        "lower_70": 24.73,
-        "upper_70": 43.06,
-        "lower_90": 20.86,
-        "upper_90": 51.42
+        "predicted": 33.72,
+        "lower_70": 25.61,
+        "upper_70": 44.51,
+        "lower_90": 21.76,
+        "upper_90": 52.51
       },
       {
         "date": "2026-08-25",
-        "predicted": 32.55,
-        "lower_70": 24.47,
-        "upper_70": 42.88,
-        "lower_90": 20.56,
-        "upper_90": 50.93
+        "predicted": 33.54,
+        "lower_70": 25.31,
+        "upper_70": 44.23,
+        "lower_90": 21.44,
+        "upper_90": 52.32
       },
       {
         "date": "2026-08-26",
-        "predicted": 32.4,
-        "lower_70": 24.2,
-        "upper_70": 42.63,
-        "lower_90": 20.33,
-        "upper_90": 50.51
+        "predicted": 33.33,
+        "lower_70": 25.13,
+        "upper_70": 44.04,
+        "lower_90": 21.33,
+        "upper_90": 52.18
       },
       {
         "date": "2026-08-27",
-        "predicted": 32.1,
-        "lower_70": 23.99,
-        "upper_70": 42.27,
-        "lower_90": 20.09,
-        "upper_90": 50.49
+        "predicted": 33.06,
+        "lower_70": 24.91,
+        "upper_70": 43.78,
+        "lower_90": 20.98,
+        "upper_90": 52.12
       },
       {
         "date": "2026-08-28",
-        "predicted": 31.85,
-        "lower_70": 23.69,
-        "upper_70": 42.12,
-        "lower_90": 19.89,
-        "upper_90": 50.3
+        "predicted": 32.81,
+        "lower_70": 24.58,
+        "upper_70": 43.6,
+        "lower_90": 20.68,
+        "upper_90": 51.77
       },
       {
         "date": "2026-08-29",
-        "predicted": 31.69,
-        "lower_70": 23.48,
-        "upper_70": 41.97,
-        "lower_90": 19.7,
-        "upper_90": 49.94
+        "predicted": 32.62,
+        "lower_70": 24.37,
+        "upper_70": 43.29,
+        "lower_90": 20.46,
+        "upper_90": 51.68
       },
       {
         "date": "2026-08-30",
-        "predicted": 31.33,
-        "lower_70": 23.26,
-        "upper_70": 41.74,
-        "lower_90": 19.6,
-        "upper_90": 50.05
+        "predicted": 32.31,
+        "lower_70": 24.23,
+        "upper_70": 43.03,
+        "lower_90": 20.23,
+        "upper_90": 51.22
       },
       {
         "date": "2026-08-31",
-        "predicted": 31.1,
-        "lower_70": 23.13,
-        "upper_70": 41.54,
-        "lower_90": 19.29,
-        "upper_90": 49.51
+        "predicted": 32.04,
+        "lower_70": 23.97,
+        "upper_70": 42.84,
+        "lower_90": 20.1,
+        "upper_90": 50.76
       },
       {
         "date": "2026-09-01",
-        "predicted": 30.99,
-        "lower_70": 22.83,
-        "upper_70": 41.51,
-        "lower_90": 19.16,
-        "upper_90": 49.6
+        "predicted": 31.89,
+        "lower_70": 23.9,
+        "upper_70": 42.69,
+        "lower_90": 20.04,
+        "upper_90": 50.63
       },
       {
         "date": "2026-09-02",
-        "predicted": 30.69,
-        "lower_70": 22.54,
-        "upper_70": 41.32,
-        "lower_90": 19.08,
-        "upper_90": 49.51
+        "predicted": 31.44,
+        "lower_70": 23.61,
+        "upper_70": 42.56,
+        "lower_90": 19.77,
+        "upper_90": 50.54
       },
       {
         "date": "2026-09-03",
-        "predicted": 30.38,
-        "lower_70": 22.33,
-        "upper_70": 41.15,
-        "lower_90": 18.85,
-        "upper_90": 49.18
+        "predicted": 31.33,
+        "lower_70": 23.37,
+        "upper_70": 42.15,
+        "lower_90": 19.48,
+        "upper_90": 50.25
       },
       {
         "date": "2026-09-04",
-        "predicted": 30.24,
-        "lower_70": 22.11,
-        "upper_70": 40.96,
-        "lower_90": 18.7,
-        "upper_90": 48.71
+        "predicted": 31.01,
+        "lower_70": 23.21,
+        "upper_70": 41.88,
+        "lower_90": 19.24,
+        "upper_90": 49.94
       },
       {
         "date": "2026-09-05",
-        "predicted": 30.13,
-        "lower_70": 21.93,
-        "upper_70": 40.65,
-        "lower_90": 18.59,
-        "upper_90": 48.84
+        "predicted": 30.73,
+        "lower_70": 22.89,
+        "upper_70": 41.67,
+        "lower_90": 19.07,
+        "upper_90": 49.61
       },
       {
         "date": "2026-09-06",
-        "predicted": 29.88,
-        "lower_70": 21.65,
-        "upper_70": 40.42,
-        "lower_90": 18.26,
-        "upper_90": 48.77
+        "predicted": 30.65,
+        "lower_70": 22.59,
+        "upper_70": 41.41,
+        "lower_90": 18.9,
+        "upper_90": 49.59
       },
       {
         "date": "2026-09-07",
-        "predicted": 29.56,
-        "lower_70": 21.56,
-        "upper_70": 40.21,
-        "lower_90": 18.07,
-        "upper_90": 48.47
+        "predicted": 30.31,
+        "lower_70": 22.46,
+        "upper_70": 41.37,
+        "lower_90": 18.55,
+        "upper_90": 49.67
       },
       {
         "date": "2026-09-08",
-        "predicted": 29.42,
-        "lower_70": 21.35,
-        "upper_70": 40.15,
-        "lower_90": 17.87,
-        "upper_90": 48.32
+        "predicted": 30.15,
+        "lower_70": 22.29,
+        "upper_70": 41.19,
+        "lower_90": 18.31,
+        "upper_90": 49.52
       },
       {
         "date": "2026-09-09",
-        "predicted": 29.09,
-        "lower_70": 21.14,
-        "upper_70": 39.87,
-        "lower_90": 17.77,
-        "upper_90": 48.14
+        "predicted": 29.96,
+        "lower_70": 22.13,
+        "upper_70": 40.97,
+        "lower_90": 18.1,
+        "upper_90": 49.0
       },
       {
         "date": "2026-09-10",
-        "predicted": 28.89,
-        "lower_70": 20.84,
-        "upper_70": 39.76,
-        "lower_90": 17.53,
-        "upper_90": 48.01
+        "predicted": 29.69,
+        "lower_70": 21.99,
+        "upper_70": 40.73,
+        "lower_90": 18.04,
+        "upper_90": 48.64
       },
       {
         "date": "2026-09-11",
-        "predicted": 28.6,
-        "lower_70": 20.6,
-        "upper_70": 39.43,
-        "lower_90": 17.39,
-        "upper_90": 47.77
+        "predicted": 29.41,
+        "lower_70": 21.63,
+        "upper_70": 40.55,
+        "lower_90": 17.91,
+        "upper_90": 48.58
       },
       {
         "date": "2026-09-12",
-        "predicted": 28.32,
-        "lower_70": 20.45,
-        "upper_70": 39.42,
-        "lower_90": 17.12,
-        "upper_90": 47.62
+        "predicted": 29.26,
+        "lower_70": 21.48,
+        "upper_70": 40.33,
+        "lower_90": 17.81,
+        "upper_90": 48.54
       },
       {
         "date": "2026-09-13",
-        "predicted": 28.16,
-        "lower_70": 20.36,
-        "upper_70": 39.16,
-        "lower_90": 16.9,
-        "upper_90": 47.62
+        "predicted": 29.02,
+        "lower_70": 21.21,
+        "upper_70": 40.13,
+        "lower_90": 17.45,
+        "upper_90": 48.15
       },
       {
         "date": "2026-09-14",
-        "predicted": 27.98,
-        "lower_70": 20.19,
-        "upper_70": 39.01,
-        "lower_90": 16.7,
-        "upper_90": 47.53
+        "predicted": 28.92,
+        "lower_70": 21.13,
+        "upper_70": 39.81,
+        "lower_90": 17.28,
+        "upper_90": 48.23
       },
       {
         "date": "2026-09-15",
-        "predicted": 27.8,
-        "lower_70": 19.96,
-        "upper_70": 38.81,
-        "lower_90": 16.52,
-        "upper_90": 47.14
+        "predicted": 28.62,
+        "lower_70": 20.79,
+        "upper_70": 39.65,
+        "lower_90": 16.97,
+        "upper_90": 48.08
       },
       {
         "date": "2026-09-16",
-        "predicted": 27.62,
-        "lower_70": 19.76,
-        "upper_70": 38.73,
-        "lower_90": 16.46,
-        "upper_90": 46.97
+        "predicted": 28.47,
+        "lower_70": 20.56,
+        "upper_70": 39.16,
+        "lower_90": 16.93,
+        "upper_90": 47.95
       },
       {
         "date": "2026-09-17",
-        "predicted": 27.41,
-        "lower_70": 19.51,
-        "upper_70": 38.19,
-        "lower_90": 16.25,
-        "upper_90": 46.91
+        "predicted": 28.28,
+        "lower_70": 20.34,
+        "upper_70": 39.06,
+        "lower_90": 16.78,
+        "upper_90": 47.66
       },
       {
         "date": "2026-09-18",
-        "predicted": 27.21,
-        "lower_70": 19.3,
-        "upper_70": 38.16,
-        "lower_90": 16.08,
-        "upper_90": 46.72
+        "predicted": 28.11,
+        "lower_70": 20.19,
+        "upper_70": 38.87,
+        "lower_90": 16.61,
+        "upper_90": 47.44
       },
       {
         "date": "2026-09-19",
-        "predicted": 26.96,
-        "lower_70": 19.04,
-        "upper_70": 37.89,
-        "lower_90": 15.94,
-        "upper_90": 46.56
+        "predicted": 27.94,
+        "lower_70": 20.07,
+        "upper_70": 38.55,
+        "lower_90": 16.46,
+        "upper_90": 47.42
       },
       {
         "date": "2026-09-20",
-        "predicted": 26.77,
-        "lower_70": 18.91,
-        "upper_70": 37.73,
-        "lower_90": 15.77,
-        "upper_90": 46.19
+        "predicted": 27.71,
+        "lower_70": 19.93,
+        "upper_70": 38.39,
+        "lower_90": 16.25,
+        "upper_90": 47.02
       },
       {
         "date": "2026-09-21",
-        "predicted": 26.58,
-        "lower_70": 18.76,
-        "upper_70": 37.5,
-        "lower_90": 15.69,
-        "upper_90": 45.73
+        "predicted": 27.51,
+        "lower_70": 19.7,
+        "upper_70": 38.13,
+        "lower_90": 16.05,
+        "upper_90": 46.83
       },
       {
         "date": "2026-09-22",
-        "predicted": 26.32,
-        "lower_70": 18.63,
-        "upper_70": 37.14,
-        "lower_90": 15.43,
-        "upper_90": 45.65
+        "predicted": 27.25,
+        "lower_70": 19.44,
+        "upper_70": 38.11,
+        "lower_90": 15.97,
+        "upper_90": 46.7
+      },
+      {
+        "date": "2026-09-23",
+        "predicted": 26.94,
+        "lower_70": 19.24,
+        "upper_70": 38.01,
+        "lower_90": 15.73,
+        "upper_90": 46.74
       }
     ],
     "weekly": [
       {
         "date": "2026-07-03",
-        "predicted": 51.87,
-        "lower_70": 47.77,
-        "upper_70": 55.99,
-        "lower_90": 45.67,
-        "upper_90": 58.74
+        "predicted": 52.47,
+        "lower_70": 48.42,
+        "upper_70": 56.71,
+        "lower_90": 46.3,
+        "upper_90": 59.28
       },
       {
         "date": "2026-07-10",
-        "predicted": 51.94,
-        "lower_70": 46.58,
-        "upper_70": 58.07,
-        "lower_90": 43.63,
-        "upper_90": 61.82
+        "predicted": 52.51,
+        "lower_70": 46.98,
+        "upper_70": 58.5,
+        "lower_90": 44.19,
+        "upper_90": 62.41
       },
       {
         "date": "2026-07-17",
-        "predicted": 51.87,
-        "lower_70": 45.49,
-        "upper_70": 59.58,
-        "lower_90": 42.01,
-        "upper_90": 64.83
+        "predicted": 52.53,
+        "lower_70": 46.1,
+        "upper_70": 60.03,
+        "lower_90": 42.47,
+        "upper_90": 64.88
       },
       {
         "date": "2026-07-24",
-        "predicted": 51.93,
-        "lower_70": 44.46,
-        "upper_70": 60.78,
-        "lower_90": 40.89,
-        "upper_90": 66.9
+        "predicted": 52.6,
+        "lower_70": 45.3,
+        "upper_70": 61.35,
+        "lower_90": 41.38,
+        "upper_90": 66.98
       },
       {
         "date": "2026-07-31",
-        "predicted": 52.07,
-        "lower_70": 43.84,
-        "upper_70": 61.99,
-        "lower_90": 39.66,
-        "upper_90": 68.77
+        "predicted": 52.74,
+        "lower_70": 44.54,
+        "upper_70": 62.62,
+        "lower_90": 39.99,
+        "upper_90": 69.19
       },
       {
         "date": "2026-08-07",
-        "predicted": 51.9,
-        "lower_70": 43.06,
-        "upper_70": 63.33,
-        "lower_90": 38.7,
-        "upper_90": 70.54
+        "predicted": 52.87,
+        "lower_70": 43.61,
+        "upper_70": 63.75,
+        "lower_90": 39.17,
+        "upper_90": 71.02
       },
       {
         "date": "2026-08-14",
-        "predicted": 51.96,
-        "lower_70": 42.33,
-        "upper_70": 64.32,
-        "lower_90": 37.71,
-        "upper_90": 72.66
+        "predicted": 52.94,
+        "lower_70": 43.12,
+        "upper_70": 64.87,
+        "lower_90": 38.44,
+        "upper_90": 73.03
       },
       {
         "date": "2026-08-21",
-        "predicted": 52.19,
-        "lower_70": 41.92,
-        "upper_70": 65.37,
-        "lower_90": 36.9,
-        "upper_90": 74.21
+        "predicted": 53.12,
+        "lower_70": 42.44,
+        "upper_70": 66.14,
+        "lower_90": 37.71,
+        "upper_90": 74.7
       },
       {
         "date": "2026-08-28",
-        "predicted": 52.39,
-        "lower_70": 41.2,
-        "upper_70": 66.56,
-        "lower_90": 36.06,
-        "upper_90": 76.1
+        "predicted": 53.13,
+        "lower_70": 42.25,
+        "upper_70": 67.17,
+        "lower_90": 37.09,
+        "upper_90": 76.98
       },
       {
         "date": "2026-09-04",
-        "predicted": 52.33,
-        "lower_70": 40.74,
-        "upper_70": 67.18,
-        "lower_90": 35.46,
-        "upper_90": 78.42
+        "predicted": 53.35,
+        "lower_70": 42.05,
+        "upper_70": 67.8,
+        "lower_90": 36.65,
+        "upper_90": 79.34
       },
       {
         "date": "2026-09-11",
-        "predicted": 52.48,
-        "lower_70": 40.43,
-        "upper_70": 67.84,
-        "lower_90": 34.62,
-        "upper_90": 79.95
+        "predicted": 53.22,
+        "lower_70": 41.68,
+        "upper_70": 68.85,
+        "lower_90": 35.86,
+        "upper_90": 80.45
       },
       {
         "date": "2026-09-18",
-        "predicted": 52.48,
-        "lower_70": 39.98,
-        "upper_70": 68.77,
-        "lower_90": 34.12,
-        "upper_90": 81.26
+        "predicted": 53.43,
+        "lower_70": 41.32,
+        "upper_70": 69.74,
+        "lower_90": 35.54,
+        "upper_90": 82.34
       },
       {
         "date": "2026-09-25",
-        "predicted": 52.39,
-        "lower_70": 39.73,
-        "upper_70": 69.37,
-        "lower_90": 33.67,
-        "upper_90": 83.07
+        "predicted": 53.36,
+        "lower_70": 40.79,
+        "upper_70": 70.78,
+        "lower_90": 34.84,
+        "upper_90": 83.5
       },
       {
         "date": "2026-10-02",
-        "predicted": 52.41,
-        "lower_70": 39.24,
-        "upper_70": 70.62,
-        "lower_90": 33.2,
-        "upper_90": 84.16
+        "predicted": 53.7,
+        "lower_70": 40.64,
+        "upper_70": 71.94,
+        "lower_90": 34.52,
+        "upper_90": 85.19
       },
       {
         "date": "2026-10-09",
-        "predicted": 52.29,
-        "lower_70": 39.0,
-        "upper_70": 71.89,
-        "lower_90": 32.67,
-        "upper_90": 86.26
+        "predicted": 53.56,
+        "lower_70": 39.93,
+        "upper_70": 72.69,
+        "lower_90": 33.55,
+        "upper_90": 86.68
       },
       {
         "date": "2026-10-16",
-        "predicted": 52.67,
-        "lower_70": 38.78,
-        "upper_70": 72.27,
-        "lower_90": 31.8,
-        "upper_90": 87.4
+        "predicted": 53.66,
+        "lower_70": 39.97,
+        "upper_70": 73.74,
+        "lower_90": 33.06,
+        "upper_90": 87.81
       },
       {
         "date": "2026-10-23",
-        "predicted": 52.82,
-        "lower_70": 38.44,
-        "upper_70": 73.14,
-        "lower_90": 31.55,
-        "upper_90": 89.18
+        "predicted": 53.9,
+        "lower_70": 39.42,
+        "upper_70": 74.17,
+        "lower_90": 32.72,
+        "upper_90": 89.32
       },
       {
         "date": "2026-10-30",
-        "predicted": 52.76,
-        "lower_70": 37.95,
-        "upper_70": 73.59,
-        "lower_90": 31.55,
-        "upper_90": 91.46
+        "predicted": 54.07,
+        "lower_70": 38.98,
+        "upper_70": 75.48,
+        "lower_90": 32.16,
+        "upper_90": 91.42
       },
       {
         "date": "2026-11-06",
-        "predicted": 52.84,
-        "lower_70": 37.64,
-        "upper_70": 74.54,
-        "lower_90": 31.1,
-        "upper_90": 91.7
+        "predicted": 54.14,
+        "lower_70": 38.83,
+        "upper_70": 76.46,
+        "lower_90": 32.11,
+        "upper_90": 93.05
       },
       {
         "date": "2026-11-13",
-        "predicted": 53.01,
-        "lower_70": 37.36,
-        "upper_70": 74.9,
-        "lower_90": 30.67,
-        "upper_90": 92.88
+        "predicted": 54.33,
+        "lower_70": 38.73,
+        "upper_70": 77.02,
+        "lower_90": 31.66,
+        "upper_90": 94.7
       },
       {
         "date": "2026-11-20",
-        "predicted": 53.19,
-        "lower_70": 37.12,
-        "upper_70": 75.75,
-        "lower_90": 30.89,
-        "upper_90": 93.4
+        "predicted": 54.12,
+        "lower_70": 38.15,
+        "upper_70": 77.51,
+        "lower_90": 31.16,
+        "upper_90": 96.89
       },
       {
         "date": "2026-11-27",
-        "predicted": 53.18,
-        "lower_70": 37.01,
-        "upper_70": 76.41,
-        "lower_90": 30.12,
-        "upper_90": 94.72
+        "predicted": 54.23,
+        "lower_70": 38.33,
+        "upper_70": 78.32,
+        "lower_90": 30.43,
+        "upper_90": 98.91
       },
       {
         "date": "2026-12-04",
-        "predicted": 53.49,
-        "lower_70": 36.69,
-        "upper_70": 76.92,
-        "lower_90": 29.66,
-        "upper_90": 95.82
+        "predicted": 54.29,
+        "lower_70": 37.86,
+        "upper_70": 79.56,
+        "lower_90": 30.23,
+        "upper_90": 99.88
       },
       {
         "date": "2026-12-11",
-        "predicted": 53.64,
-        "lower_70": 36.52,
-        "upper_70": 78.46,
-        "lower_90": 29.56,
-        "upper_90": 96.48
+        "predicted": 54.41,
+        "lower_70": 37.7,
+        "upper_70": 80.21,
+        "lower_90": 30.06,
+        "upper_90": 101.24
       },
       {
         "date": "2026-12-18",
-        "predicted": 53.55,
-        "lower_70": 36.4,
-        "upper_70": 78.62,
-        "lower_90": 29.22,
-        "upper_90": 98.52
+        "predicted": 54.94,
+        "lower_70": 37.48,
+        "upper_70": 81.25,
+        "lower_90": 29.38,
+        "upper_90": 102.8
       },
       {
         "date": "2026-12-25",
-        "predicted": 53.81,
-        "lower_70": 36.23,
-        "upper_70": 78.84,
-        "lower_90": 28.94,
-        "upper_90": 99.9
+        "predicted": 54.96,
+        "lower_70": 37.34,
+        "upper_70": 81.91,
+        "lower_90": 29.41,
+        "upper_90": 104.31
       }
     ],
     "monthly": [
       {
         "date": "2026-07-30",
-        "predicted": 52.84,
-        "lower_70": 47.58,
-        "upper_70": 58.46,
-        "lower_90": 45.0,
-        "upper_90": 62.22
+        "predicted": 53.4,
+        "lower_70": 48.28,
+        "upper_70": 58.96,
+        "lower_90": 45.33,
+        "upper_90": 62.45
       },
       {
         "date": "2026-08-30",
-        "predicted": 53.94,
-        "lower_70": 46.74,
-        "upper_70": 62.13,
-        "lower_90": 43.0,
-        "upper_90": 67.9
+        "predicted": 54.38,
+        "lower_70": 47.23,
+        "upper_70": 63.0,
+        "lower_90": 43.27,
+        "upper_90": 68.61
       },
       {
         "date": "2026-09-30",
-        "predicted": 54.8,
-        "lower_70": 46.1,
-        "upper_70": 65.35,
-        "lower_90": 41.28,
-        "upper_90": 73.2
+        "predicted": 55.46,
+        "lower_70": 46.59,
+        "upper_70": 66.34,
+        "lower_90": 41.85,
+        "upper_90": 73.51
       },
       {
         "date": "2026-10-30",
-        "predicted": 56.02,
-        "lower_70": 45.77,
-        "upper_70": 68.93,
-        "lower_90": 40.53,
-        "upper_90": 77.81
+        "predicted": 56.58,
+        "lower_70": 46.21,
+        "upper_70": 69.39,
+        "lower_90": 41.03,
+        "upper_90": 78.82
       },
       {
         "date": "2026-11-30",
-        "predicted": 57.01,
-        "lower_70": 45.57,
-        "upper_70": 72.24,
-        "lower_90": 39.85,
-        "upper_90": 82.54
+        "predicted": 57.51,
+        "lower_70": 46.42,
+        "upper_70": 72.44,
+        "lower_90": 40.42,
+        "upper_90": 83.08
       },
       {
         "date": "2026-12-30",
-        "predicted": 57.99,
-        "lower_70": 45.29,
-        "upper_70": 75.0,
-        "lower_90": 39.54,
-        "upper_90": 87.5
+        "predicted": 58.72,
+        "lower_70": 46.18,
+        "upper_70": 75.55,
+        "lower_90": 39.52,
+        "upper_90": 88.24
       },
       {
         "date": "2027-01-30",
-        "predicted": 58.97,
-        "lower_70": 45.38,
-        "upper_70": 77.91,
-        "lower_90": 38.75,
-        "upper_90": 91.48
+        "predicted": 59.83,
+        "lower_70": 46.64,
+        "upper_70": 78.52,
+        "lower_90": 39.39,
+        "upper_90": 92.75
       },
       {
         "date": "2027-02-28",
-        "predicted": 60.23,
-        "lower_70": 45.55,
-        "upper_70": 81.63,
-        "lower_90": 38.62,
-        "upper_90": 96.97
+        "predicted": 61.12,
+        "lower_70": 46.78,
+        "upper_70": 81.74,
+        "lower_90": 39.84,
+        "upper_90": 96.99
       },
       {
         "date": "2027-03-30",
-        "predicted": 61.42,
-        "lower_70": 45.6,
-        "upper_70": 84.56,
-        "lower_90": 38.16,
-        "upper_90": 100.3
+        "predicted": 62.71,
+        "lower_70": 46.69,
+        "upper_70": 84.5,
+        "lower_90": 39.36,
+        "upper_90": 102.72
       },
       {
         "date": "2027-04-30",
-        "predicted": 63.14,
-        "lower_70": 45.63,
-        "upper_70": 87.2,
-        "lower_90": 38.12,
-        "upper_90": 106.31
+        "predicted": 64.02,
+        "lower_70": 46.66,
+        "upper_70": 88.15,
+        "lower_90": 38.86,
+        "upper_90": 107.02
       },
       {
         "date": "2027-05-30",
-        "predicted": 64.29,
-        "lower_70": 45.54,
-        "upper_70": 90.27,
-        "lower_90": 37.65,
-        "upper_90": 111.44
+        "predicted": 65.02,
+        "lower_70": 47.15,
+        "upper_70": 91.44,
+        "lower_90": 39.07,
+        "upper_90": 111.84
       },
       {
         "date": "2027-06-30",
-        "predicted": 65.3,
-        "lower_70": 45.74,
-        "upper_70": 94.47,
-        "lower_90": 37.18,
-        "upper_90": 115.61
+        "predicted": 66.27,
+        "lower_70": 46.98,
+        "upper_70": 94.6,
+        "lower_90": 38.43,
+        "upper_90": 116.5
       }
     ]
   },
   "simulation_7d": {
     "dates": [
-      "2026-06-24",
       "2026-06-25",
       "2026-06-26",
       "2026-06-27",
       "2026-06-28",
       "2026-06-29",
       "2026-06-30",
-      "2026-07-01"
+      "2026-07-01",
+      "2026-07-02"
     ],
-    "start_price": 51.78,
+    "start_price": 52.36,
     "predicted": [
-      51.78,
-      51.37,
-      50.97,
-      50.53,
-      50.14,
-      49.8,
-      49.48,
-      49.08
+      52.36,
+      51.94,
+      51.59,
+      51.17,
+      50.8,
+      50.41,
+      50.07,
+      49.68
     ],
     "lower_70": [
-      51.78,
-      49.57,
-      48.42,
-      47.47,
-      46.74,
-      45.92,
-      45.29,
-      44.59
+      52.36,
+      50.12,
+      49.02,
+      48.05,
+      47.23,
+      46.49,
+      45.79,
+      45.21
     ],
     "upper_70": [
-      51.78,
-      53.31,
-      53.68,
-      53.82,
-      53.99,
-      53.96,
-      54.01,
-      53.96
+      52.36,
+      53.85,
+      54.25,
+      54.48,
+      54.62,
+      54.62,
+      54.76,
+      54.77
     ],
     "lower_90": [
-      51.78,
-      48.52,
-      46.98,
-      45.74,
-      44.7,
-      43.76,
-      42.97,
-      42.15
+      52.36,
+      49.1,
+      47.61,
+      46.38,
+      45.35,
+      44.39,
+      43.44,
+      42.69
     ],
     "upper_90": [
-      51.78,
-      54.4,
-      55.28,
-      55.87,
-      56.39,
-      56.75,
-      57.1,
-      57.26
+      52.36,
+      55.0,
+      55.8,
+      56.37,
+      56.94,
+      57.22,
+      57.67,
+      57.88
     ],
     "paths": [
       [
-        51.78,
-        50.01,
-        46.9,
-        45.59,
-        44.7,
-        43.61,
-        43.06,
-        43.73
-      ],
-      [
-        51.78,
-        56.31,
-        59.28,
-        57.32,
-        55.14,
-        53.1,
-        55.76,
-        59.57
-      ],
-      [
-        51.78,
-        53.26,
-        53.98,
-        57.11,
-        58.89,
-        58.34,
-        54.63,
-        52.6
-      ],
-      [
-        51.78,
-        53.08,
-        49.59,
-        50.33,
-        46.75,
-        46.07,
-        43.74,
-        43.58
-      ],
-      [
-        51.78,
-        51.49,
         52.36,
-        51.22,
-        49.45,
-        49.37,
-        47.88,
-        45.98
+        50.78,
+        49.17,
+        49.27,
+        48.29,
+        47.92,
+        49.38,
+        49.67
       ],
       [
-        51.78,
-        48.51,
-        48.44,
-        48.67,
-        48.76,
-        49.71,
+        52.36,
+        49.38,
+        47.28,
+        48.28,
+        45.37,
+        44.9,
+        43.6,
+        46.56
+      ],
+      [
+        52.36,
+        50.94,
+        50.86,
+        51.9,
+        49.88,
+        47.91,
         49.04,
-        50.85
+        48.22
       ],
       [
-        51.78,
-        47.34,
-        45.17,
-        45.83,
-        46.77,
-        47.39,
-        46.32,
+        52.36,
+        55.74,
+        61.73,
+        64.27,
+        64.98,
+        64.11,
+        62.41,
+        64.62
+      ],
+      [
+        52.36,
+        54.6,
+        57.76,
+        54.88,
+        54.29,
+        53.7,
+        54.5,
+        53.29
+      ],
+      [
+        52.36,
+        55.22,
+        55.52,
+        56.02,
+        54.06,
+        56.36,
+        57.73,
+        58.42
+      ],
+      [
+        52.36,
+        53.14,
+        54.73,
+        54.87,
+        52.74,
+        51.42,
+        50.57,
+        52.25
+      ],
+      [
+        52.36,
+        53.87,
+        51.57,
+        51.03,
+        49.45,
+        52.26,
+        49.41,
+        47.71
+      ],
+      [
+        52.36,
+        53.54,
+        52.94,
+        52.51,
+        52.7,
+        50.9,
+        50.52,
+        50.19
+      ],
+      [
+        52.36,
+        49.03,
+        50.26,
+        47.98,
+        47.57,
+        48.62,
+        48.52,
+        52.49
+      ],
+      [
+        52.36,
+        50.98,
+        50.94,
+        50.3,
+        50.08,
+        49.11,
+        47.84,
+        49.15
+      ],
+      [
+        52.36,
+        51.76,
+        51.7,
+        50.01,
+        52.21,
+        51.6,
+        53.43,
+        52.43
+      ],
+      [
+        52.36,
+        51.9,
+        49.35,
+        47.04,
+        49.01,
+        47.36,
+        45.9,
+        46.82
+      ],
+      [
+        52.36,
+        50.46,
+        48.18,
+        49.04,
+        46.07,
+        45.57,
+        47.45,
+        47.28
+      ],
+      [
+        52.36,
+        52.57,
+        51.61,
+        51.33,
+        53.52,
+        57.59,
+        55.88,
+        55.01
+      ],
+      [
+        52.36,
+        50.52,
+        47.93,
+        47.4,
+        45.07,
+        44.49,
+        43.13,
+        43.83
+      ],
+      [
+        52.36,
+        53.4,
+        53.25,
+        53.21,
+        51.9,
+        51.16,
+        54.03,
+        56.26
+      ],
+      [
+        52.36,
+        50.81,
+        51.41,
+        55.62,
+        51.64,
+        51.49,
+        50.54,
         48.15
       ],
       [
-        51.78,
-        51.65,
-        50.29,
-        50.17,
-        50.72,
-        49.66,
-        49.16,
-        48.62
-      ],
-      [
-        51.78,
-        53.66,
-        55.4,
-        54.72,
-        53.82,
-        50.26,
-        50.77,
-        50.34
-      ],
-      [
-        51.78,
+        52.36,
         52.16,
-        54.04,
-        53.47,
-        54.22,
-        55.02,
-        57.3,
-        55.78
+        50.09,
+        48.27,
+        48.6,
+        46.15,
+        45.33,
+        44.75
       ],
       [
-        51.78,
-        52.26,
-        51.0,
-        50.95,
-        50.3,
-        52.11,
-        51.79,
-        51.89
-      ],
-      [
-        51.78,
-        52.12,
-        52.38,
-        54.21,
-        56.74,
-        60.55,
-        58.91,
-        55.52
-      ],
-      [
-        51.78,
-        49.36,
-        47.95,
-        45.21,
-        46.18,
-        47.1,
-        48.58,
-        49.65
-      ],
-      [
-        51.78,
-        51.71,
-        54.81,
-        52.97,
-        53.94,
-        51.24,
-        53.0,
-        53.8
-      ],
-      [
-        51.78,
-        49.92,
-        48.8,
-        48.83,
-        47.84,
-        44.43,
-        44.13,
-        42.93
-      ],
-      [
-        51.78,
-        53.75,
-        53.67,
-        51.32,
-        51.29,
-        49.23,
-        48.1,
-        47.88
-      ],
-      [
-        51.78,
-        54.49,
-        53.65,
-        54.62,
-        54.2,
-        53.2,
-        53.65,
-        53.68
-      ],
-      [
-        51.78,
-        54.25,
-        51.98,
-        51.88,
-        52.18,
-        51.02,
-        51.63,
-        46.8
-      ],
-      [
-        51.78,
-        52.06,
-        52.19,
-        49.41,
-        48.2,
-        48.15,
-        45.51,
-        44.79
-      ],
-      [
-        51.78,
-        53.75,
-        54.46,
-        54.7,
-        53.54,
-        53.23,
-        52.79,
-        51.63
+        52.36,
+        51.61,
+        49.14,
+        48.76,
+        46.69,
+        49.5,
+        46.84,
+        47.77
       ]
     ]
   },
   "backtest": {
     "daily": {
-      "mape_1d": 2.9,
-      "mape_7d": 8.25,
-      "mape_30d": 14.03
+      "mape_1d": 2.84,
+      "mape_7d": 8.55,
+      "mape_30d": 14.63
     },
     "weekly": {
-      "mape_1w": 7.7,
-      "mape_4w": 15.69,
-      "mape_13w": 41.14
+      "mape_1w": 7.69,
+      "mape_4w": 15.3,
+      "mape_13w": 40.8
     },
     "monthly": {
       "mape_1m": 11.99,
-      "mape_3m": 27.76,
-      "mape_6m": 39.03
+      "mape_3m": 27.67,
+      "mape_6m": 38.45
     }
   }
 }
